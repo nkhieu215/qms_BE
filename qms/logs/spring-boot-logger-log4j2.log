@@ -1,0 +1,130 @@
+2024-03-21 11:16:20,817 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.2.0.Final
+2024-03-21 11:16:20,892 INFO o.s.b.StartupInfoLogger [main] Starting QmsApplication using Java 1.8.0_191 on DESKTOP-NBOG91H with PID 15008 (D:\RangDongProject\qms\qms\build\classes\java\main started by Dell in D:\RangDongProject\qms\qms)
+2024-03-21 11:16:20,893 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
+2024-03-21 11:16:22,215 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 11:16:22,673 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 439 ms. Found 70 JPA repository interfaces.
+2024-03-21 11:16:22,674 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 11:16:22,692 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 17 ms. Found 2 JPA repository interfaces.
+2024-03-21 11:16:22,693 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 11:16:22,741 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 47 ms. Found 8 JPA repository interfaces.
+2024-03-21 11:16:23,798 INFO o.s.c.c.s.GenericScope [main] BeanFactory id=5124c150-fbc8-37a0-bca0-c119df5a171f
+2024-03-21 11:16:25,057 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8449 (http)
+2024-03-21 11:16:25,068 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8449"]
+2024-03-21 11:16:25,068 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-21 11:16:25,069 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-03-21 11:16:25,131 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-21 11:16:25,132 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 4177 ms
+2024-03-21 11:16:25,295 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-21 11:16:25,637 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 11:16:25,711 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 5.6.3.Final
+2024-03-21 11:16:25,907 INFO o.h.a.c.r.j.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-21 11:16:26,421 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-21 11:16:26,580 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-21 11:16:26,600 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-03-21 11:16:29,396 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-21 11:16:29,942 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 11:16:30,267 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 11:16:30,485 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
+2024-03-21 11:16:30,497 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
+2024-03-21 11:16:30,497 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-03-21 11:16:30,837 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-21 11:16:30,852 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 11:16:30,886 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 11:16:31,246 INFO c.z.h.HikariDataSource [main] HikariPool-3 - Starting...
+2024-03-21 11:16:31,867 WARN c.m.s.j.TDSChannel [main] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-21 11:16:31,942 INFO c.z.h.HikariDataSource [main] HikariPool-3 - Start completed.
+2024-03-21 11:16:31,947 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-03-21 11:16:32,073 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-21 11:16:32,104 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-21 11:16:32,132 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-21 11:16:32,179 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-21 11:16:32,422 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-21 11:16:32,696 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 11:16:34,327 DEBUG o.h.e.j.s.SqlStatementLogger [main] select setting0_.id as id1_63_, setting0_.approve as approve2_63_, setting0_.code as code3_63_, setting0_.key as key4_63_, setting0_.name as name5_63_ from setting setting0_
+2024-03-21 11:16:34,401 DEBUG o.h.e.j.s.SqlStatementLogger [main] select noticonfig0_.id as id1_16_, noticonfig0_.app_name as app_name2_16_, noticonfig0_.content as content3_16_, noticonfig0_.created_at as created_4_16_, noticonfig0_.note as note5_16_, noticonfig0_.title as title6_16_, noticonfig0_.topic as topic7_16_, noticonfig0_.type as type8_16_, noticonfig0_.updated_at as updated_9_16_, noticonfig0_.warning_type as warning10_16_ from noti_config noticonfig0_
+2024-03-21 11:16:34,456 INFO o.a.k.c.c.AbstractConfig [main] ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [222.252.25.37:9092, 222.252.25.37:9093]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2024-03-21 11:16:34,539 INFO o.a.k.c.u.AppInfoParser$AppInfo [main] Kafka version: 3.0.0
+2024-03-21 11:16:34,539 INFO o.a.k.c.u.AppInfoParser$AppInfo [main] Kafka commitId: 8cb0a5e9d3441962
+2024-03-21 11:16:34,540 INFO o.a.k.c.u.AppInfoParser$AppInfo [main] Kafka startTimeMs: 1710994594536
+2024-03-21 11:16:34,558 INFO c.f.q.u.AppLog [Thread-3] WARNING PROCESS!!!
+2024-03-21 11:16:38,813 INFO o.s.s.w.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44e98424, org.springframework.security.web.context.SecurityContextPersistenceFilter@64d1bf9, org.springframework.security.web.header.HeaderWriterFilter@6793a49c, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@1277a6a1, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@58052571, org.springframework.security.web.authentication.logout.LogoutFilter@33ded464, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c9f28ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c367518, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@f3ae18f, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@51039ec9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53b96881, org.springframework.security.web.session.SessionManagementFilter@45b97486, org.springframework.security.web.access.ExceptionTranslationFilter@387d2104, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d947961]
+2024-03-21 11:16:41,025 INFO o.s.c.c.u.InetUtils [main] Cannot determine local hostname
+2024-03-21 11:16:41,348 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8449"]
+2024-03-21 11:16:41,358 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8449 (http) with context path ''
+2024-03-21 11:16:42,678 INFO o.s.c.c.u.InetUtils [main] Cannot determine local hostname
+2024-03-21 11:16:42,699 INFO o.s.b.StartupInfoLogger [main] Started QmsApplication in 23.781 seconds (JVM running for 24.827)
+2024-03-21 11:16:46,299 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
+2024-03-21 11:16:54,684 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
+2024-03-21 11:17:15,789 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
+2024-03-21 11:17:15,789 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
