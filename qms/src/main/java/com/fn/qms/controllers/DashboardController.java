@@ -41,7 +41,7 @@ public class DashboardController extends BaseController {
 		DashboardResponse response = dashboardService.getChart(param);
 		return  response;
 	}
-	@GetMapping("/get-setting-process") // * Lấy danh sách dashBoard
+	@GetMapping("/home") // * Lấy danh sách dashBoard
 	public DashboardResponse getSumOfErrors(HttpServletRequest requestClient){
 		AppLog.info(requestClient.getRequestURI());
 		DashboardResponse response = dashboardService.getSumOfErrors();
