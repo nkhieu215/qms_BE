@@ -89,4 +89,6 @@ public interface ElectronicComponentRepository extends JpaRepository<IqcElectron
     List<Object[]> reportCountStatus(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
     @Query(value = "SELECT  origin,po_quantity,status,checking_quantity FROM `iqc_electronic_component` ",nativeQuery = true)
     public List<Object[]> getListIqcElectronicComponentByConditions();
+    @Query(value="select count(status) from `iqc_electronic_component` where status ='WAIT_APPROVE'",nativeQuery = true)
+    public Integer countIqcWaitApproveStatus();
 }

@@ -8,6 +8,7 @@ import com.fn.qms.dto.*;
 import com.fn.qms.models.*;
 import com.fn.qms.repository.*;
 import com.fn.qms.rest.*;
+import com.fn.qms.rest.service.IqcElectCompErrResponse;
 import com.fn.qms.utils.AppLog;
 import com.fn.qms.utils.DateUtils;
 import com.fn.qms.utils.Utils;
@@ -215,9 +216,17 @@ public class DashboardService {
     //? Lấy danh sách tổng lỗi
     public DashboardResponse getSumOfErrors(){
         DashboardResponse dashboardResponse = new DashboardResponse();
-//        //☺ Lấy danh sách lỗi
-//        List<IqcElectCompErr> errList = this.iqcElectCompErrRepository.findAll();
-//        dashboardResponse.setIqcElectCompErrsList(errList);
+        //? Lấy danh sách lỗi
+        List<Object[]> errList = this.iqcElectCompErrRepository.getIqcElectCompErrList();
+        List<IqcElectCompErrResponse> errResponseList = new ArrayList<>();
+        for (Object[] item : errList){
+            IqcElectCompErrResponse response = new IqcElectCompErrResponse();
+            response.setErrName((String) item[1]);
+            response.setQuantity((Integer) item[0]);
+            response.setCheckingQuantity((Integer) item[2]);
+            errResponseList.add(response);
+        }
+        dashboardResponse.setIqcElectCompErrsList(errResponseList);
         //?Lấy danh sách Iqc theo điều kiện tìm kiếm
         List<IqcElectCompDashResponse> iqcElectCompDashResponseList = new ArrayList<>();
         List<Object[]> iqcElectronicComponents = this.electronicComponentRepository.getListIqcElectronicComponentByConditions();
@@ -242,7 +251,10 @@ public class DashboardService {
             pqcStoreCheckResponseList.add(response);
         }
         dashboardResponse.setPqcStoreCheckList(pqcStoreCheckResponseList);
+        //? đếm số lượng lệnh sản xuất  trạng thái Wait
         dashboardResponse.setCountWorkOrderWaitStatus(this.pqcWorkOrderRepository.countWorkOrderWaitStatus());
+        //? đếm số lượng biên bản kiểm tra ở trạng thái Wait_approve
+        dashboardResponse.setCountIqcWaitApproveStatus(this.electronicComponentRepository.countIqcWaitApproveStatus());
         //? pqc quality- Đánh giá chất lượng
         List<Object> pqcQualities = this.pqcQualityRepository.getPqcQualityConclude();
         List<PqcQuantityDashResponse> pqcQuantityDashResponseList = new ArrayList<>();

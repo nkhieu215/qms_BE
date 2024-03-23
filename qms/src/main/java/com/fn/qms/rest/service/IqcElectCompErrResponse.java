@@ -5,6 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class IqcElectCompErrResponse {
+    private String errName;
+    private Integer quantity;
+    private Integer checkingQuantity;
 }

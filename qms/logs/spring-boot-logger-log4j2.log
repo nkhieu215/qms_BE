@@ -1,48 +1,48 @@
-2024-03-23 10:22:48,989 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.2.0.Final
-2024-03-23 10:22:49,017 INFO o.s.b.StartupInfoLogger [main] Starting QmsApplication using Java 1.8.0_191 on DESKTOP-NBOG91H with PID 30436 (D:\RangDongProject\qms\qms_BE\qms\build\classes\java\main started by Dell in D:\RangDongProject\qms\qms_BE\qms)
-2024-03-23 10:22:49,017 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
-2024-03-23 10:22:49,543 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-23 10:22:49,692 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 143 ms. Found 70 JPA repository interfaces.
-2024-03-23 10:22:49,693 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-23 10:22:49,699 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
-2024-03-23 10:22:49,699 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-23 10:22:49,714 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 15 ms. Found 8 JPA repository interfaces.
-2024-03-23 10:22:50,031 INFO o.s.c.c.s.GenericScope [main] BeanFactory id=5124c150-fbc8-37a0-bca0-c119df5a171f
-2024-03-23 10:22:50,626 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8449 (http)
-2024-03-23 10:22:50,632 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8449"]
-2024-03-23 10:22:50,632 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
-2024-03-23 10:22:50,632 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.56]
-2024-03-23 10:22:50,659 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2024-03-23 10:22:50,660 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1615 ms
-2024-03-23 10:22:50,727 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-03-23 10:22:50,862 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-23 10:22:50,891 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 5.6.3.Final
-2024-03-23 10:22:50,996 INFO o.h.a.c.r.j.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-03-23 10:22:51,193 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
-2024-03-23 10:22:51,269 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
-2024-03-23 10:22:51,278 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2024-03-23 10:22:52,164 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-03-23 10:22:52,228 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-23 10:22:52,485 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-23 10:22:52,585 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
-2024-03-23 10:22:52,598 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
-2024-03-23 10:22:52,599 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2024-03-23 10:22:52,727 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-03-23 10:22:52,733 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-23 10:22:52,749 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-23 10:22:52,848 INFO c.z.h.HikariDataSource [main] HikariPool-3 - Starting...
-2024-03-23 10:22:53,084 WARN c.m.s.j.TDSChannel [main] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
-2024-03-23 10:22:53,122 INFO c.z.h.HikariDataSource [main] HikariPool-3 - Start completed.
-2024-03-23 10:22:53,123 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2024-03-23 10:22:53,237 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
-2024-03-23 10:22:53,265 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
-2024-03-23 10:22:53,282 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
-2024-03-23 10:22:53,302 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
-2024-03-23 10:22:53,336 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-03-23 10:22:53,443 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-23 10:22:54,142 DEBUG o.h.e.j.s.SqlStatementLogger [main] select setting0_.id as id1_63_, setting0_.approve as approve2_63_, setting0_.code as code3_63_, setting0_.key as key4_63_, setting0_.name as name5_63_ from setting setting0_
-2024-03-23 10:22:54,183 DEBUG o.h.e.j.s.SqlStatementLogger [main] select noticonfig0_.id as id1_16_, noticonfig0_.app_name as app_name2_16_, noticonfig0_.content as content3_16_, noticonfig0_.created_at as created_4_16_, noticonfig0_.note as note5_16_, noticonfig0_.title as title6_16_, noticonfig0_.topic as topic7_16_, noticonfig0_.type as type8_16_, noticonfig0_.updated_at as updated_9_16_, noticonfig0_.warning_type as warning10_16_ from noti_config noticonfig0_
-2024-03-23 10:22:54,210 INFO o.a.k.c.c.AbstractConfig [main] ProducerConfig values: 
+2024-03-23 12:34:19,926 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.2.0.Final
+2024-03-23 12:34:19,976 INFO o.s.b.StartupInfoLogger [main] Starting QmsApplication using Java 1.8.0_191 on DESKTOP-NBOG91H with PID 30024 (D:\RangDongProject\qms\qms_BE\qms\build\classes\java\main started by Dell in D:\RangDongProject\qms\qms_BE\qms)
+2024-03-23 12:34:19,977 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
+2024-03-23 12:34:20,941 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-23 12:34:21,235 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 284 ms. Found 70 JPA repository interfaces.
+2024-03-23 12:34:21,274 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-23 12:34:21,285 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 10 ms. Found 2 JPA repository interfaces.
+2024-03-23 12:34:21,286 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-23 12:34:21,317 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 30 ms. Found 8 JPA repository interfaces.
+2024-03-23 12:34:21,914 INFO o.s.c.c.s.GenericScope [main] BeanFactory id=5124c150-fbc8-37a0-bca0-c119df5a171f
+2024-03-23 12:34:22,949 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8449 (http)
+2024-03-23 12:34:22,959 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8449"]
+2024-03-23 12:34:22,959 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-23 12:34:22,959 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-03-23 12:34:23,010 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-23 12:34:23,011 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2974 ms
+2024-03-23 12:34:23,130 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-23 12:34:23,363 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-23 12:34:23,405 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 5.6.3.Final
+2024-03-23 12:34:23,560 INFO o.h.a.c.r.j.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-23 12:34:23,928 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-23 12:34:24,062 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-23 12:34:24,076 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-03-23 12:34:25,586 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-23 12:34:25,701 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-23 12:34:26,235 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-23 12:34:26,428 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
+2024-03-23 12:34:26,432 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
+2024-03-23 12:34:26,433 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-03-23 12:34:26,658 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-23 12:34:26,666 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-23 12:34:26,691 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-23 12:34:26,892 INFO c.z.h.HikariDataSource [main] HikariPool-3 - Starting...
+2024-03-23 12:34:27,357 WARN c.m.s.j.TDSChannel [main] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-23 12:34:27,420 INFO c.z.h.HikariDataSource [main] HikariPool-3 - Start completed.
+2024-03-23 12:34:27,424 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-03-23 12:34:27,541 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-23 12:34:27,579 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-23 12:34:27,611 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-23 12:34:27,642 WARN c.m.s.j.TDSChannel [HikariPool-3 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2024-03-23 12:34:27,794 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-23 12:34:28,041 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-23 12:34:29,324 DEBUG o.h.e.j.s.SqlStatementLogger [main] select setting0_.id as id1_63_, setting0_.approve as approve2_63_, setting0_.code as code3_63_, setting0_.key as key4_63_, setting0_.name as name5_63_ from setting setting0_
+2024-03-23 12:34:29,416 DEBUG o.h.e.j.s.SqlStatementLogger [main] select noticonfig0_.id as id1_16_, noticonfig0_.app_name as app_name2_16_, noticonfig0_.content as content3_16_, noticonfig0_.created_at as created_4_16_, noticonfig0_.note as note5_16_, noticonfig0_.title as title6_16_, noticonfig0_.topic as topic7_16_, noticonfig0_.type as type8_16_, noticonfig0_.updated_at as updated_9_16_, noticonfig0_.warning_type as warning10_16_ from noti_config noticonfig0_
+2024-03-23 12:34:29,459 INFO o.a.k.c.c.AbstractConfig [main] ProducerConfig values: 
 	acks = -1
 	batch.size = 16384
 	bootstrap.servers = [222.252.25.37:9092, 222.252.25.37:9093]
@@ -114,57 +114,25 @@
 	transactional.id = null
 	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
 
-2024-03-23 10:22:54,248 INFO o.a.k.c.u.AppInfoParser$AppInfo [main] Kafka version: 3.0.0
-2024-03-23 10:22:54,249 INFO o.a.k.c.u.AppInfoParser$AppInfo [main] Kafka commitId: 8cb0a5e9d3441962
-2024-03-23 10:22:54,249 INFO o.a.k.c.u.AppInfoParser$AppInfo [main] Kafka startTimeMs: 1711164174247
-2024-03-23 10:22:54,257 INFO c.f.q.u.AppLog [Thread-3] WARNING PROCESS!!!
-2024-03-23 10:22:56,390 INFO o.s.s.w.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c4fee11, org.springframework.security.web.context.SecurityContextPersistenceFilter@78b00778, org.springframework.security.web.header.HeaderWriterFilter@557f969e, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@6ee34fe4, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@3a9a12a1, org.springframework.security.web.authentication.logout.LogoutFilter@7b6bf067, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7dc8d054, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@606b29ba, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@19740583, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@5f455d91, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e3ba10a, org.springframework.security.web.session.SessionManagementFilter@1ca0f80, org.springframework.security.web.access.ExceptionTranslationFilter@69db41bc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@786f4b15]
-2024-03-23 10:22:57,139 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8449"]
-2024-03-23 10:22:57,145 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8449 (http) with context path ''
-2024-03-23 10:22:57,305 INFO o.s.b.StartupInfoLogger [main] Started QmsApplication in 8.661 seconds (JVM running for 9.172)
-2024-03-23 10:23:03,567 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
-2024-03-23 10:23:06,656 INFO o.a.j.l.DirectJDKLog [http-nio-8449-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-03-23 10:23:06,656 INFO o.s.w.s.FrameworkServlet [http-nio-8449-exec-2] Initializing Servlet 'dispatcherServlet'
-2024-03-23 10:23:06,658 INFO o.s.w.s.FrameworkServlet [http-nio-8449-exec-2] Completed initialization in 1 ms
-2024-03-23 10:23:06,694 INFO c.f.q.u.AppLog [http-nio-8449-exec-2] /dashboard/get-setting-process
-2024-03-23 10:23:06,710 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] SELECT  origin,po_quantity,status,checking_quantity FROM `iqc_electronic_component` 
-2024-03-23 10:23:06,728 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select a.id,a.work_order_id,b.quatity_store,b.conclude from `pqc_store_check` as b inner join pqc_work_order as a on b.work_order_id = a.id
-2024-03-23 10:23:06,833 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select count(status) from `pqc_work_order` where status ='WAIT'
-2024-03-23 10:23:06,841 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select c.conclude from `pqc_quality` as c inner join pqc_work_order as b on c.work_order_id = b.id
-2024-03-23 10:23:06,883 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select a.quantity, a.conclude from `pqc_photoelectric` a inner join pqc_work_order as b on a.work_order_id = b.id
-2024-03-23 10:23:06,895 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select a.quatity, a.conclude from `pqc_photoelectric_product` a inner join pqc_work_order as b on a.work_order_id = b.id
-2024-03-23 10:23:15,550 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
-2024-03-23 10:23:36,660 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
-2024-03-23 10:23:36,660 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
-2024-03-23 10:23:57,767 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -1 (/222.252.25.37:9092) could not be established. Broker may not be available.
-2024-03-23 10:23:57,767 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
-2024-03-23 10:24:18,873 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
-2024-03-23 10:24:18,874 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
-2024-03-23 10:24:39,979 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -1 (/222.252.25.37:9092) could not be established. Broker may not be available.
-2024-03-23 10:24:39,979 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
-2024-03-23 10:25:01,085 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
-2024-03-23 10:25:01,085 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
-2024-03-23 10:25:22,191 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -1 (/222.252.25.37:9092) could not be established. Broker may not be available.
-2024-03-23 10:25:22,192 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
-2024-03-23 10:25:43,296 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
-2024-03-23 10:25:43,296 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
-2024-03-23 10:26:04,408 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -1 (/222.252.25.37:9092) could not be established. Broker may not be available.
-2024-03-23 10:26:04,408 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
-2024-03-23 10:26:25,514 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
-2024-03-23 10:26:25,515 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
-2024-03-23 10:26:46,619 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -1 (/222.252.25.37:9092) could not be established. Broker may not be available.
-2024-03-23 10:26:46,619 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
-2024-03-23 10:27:07,724 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
-2024-03-23 10:27:07,724 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
-2024-03-23 10:27:28,834 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -1 (/222.252.25.37:9092) could not be established. Broker may not be available.
-2024-03-23 10:27:28,835 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
-2024-03-23 10:27:49,938 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
-2024-03-23 10:27:49,939 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
-2024-03-23 10:28:11,041 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -1 (/222.252.25.37:9092) could not be established. Broker may not be available.
-2024-03-23 10:28:11,041 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
-2024-03-23 10:28:32,158 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
-2024-03-23 10:28:32,159 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
-2024-03-23 10:28:53,262 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -1 (/222.252.25.37:9092) could not be established. Broker may not be available.
-2024-03-23 10:28:53,262 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
-2024-03-23 10:29:14,367 WARN o.a.k.c.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -2 (/222.252.25.37:9093) could not be established. Broker may not be available.
-2024-03-23 10:29:14,367 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
+2024-03-23 12:34:29,530 INFO o.a.k.c.u.AppInfoParser$AppInfo [main] Kafka version: 3.0.0
+2024-03-23 12:34:29,531 INFO o.a.k.c.u.AppInfoParser$AppInfo [main] Kafka commitId: 8cb0a5e9d3441962
+2024-03-23 12:34:29,531 INFO o.a.k.c.u.AppInfoParser$AppInfo [main] Kafka startTimeMs: 1711172069529
+2024-03-23 12:34:29,547 INFO c.f.q.u.AppLog [Thread-3] WARNING PROCESS!!!
+2024-03-23 12:34:33,897 INFO o.s.s.w.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f31ff7a, org.springframework.security.web.context.SecurityContextPersistenceFilter@3796062b, org.springframework.security.web.header.HeaderWriterFilter@4e260e04, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@36e8fefe, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@65a03c19, org.springframework.security.web.authentication.logout.LogoutFilter@15cf25ce, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72416c9a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@373ca236, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@457547a1, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@12ff3df, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f98ae97, org.springframework.security.web.session.SessionManagementFilter@7c0fd22d, org.springframework.security.web.access.ExceptionTranslationFilter@7a625e2e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@444d2bb6]
+2024-03-23 12:34:35,311 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8449"]
+2024-03-23 12:34:35,323 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8449 (http) with context path ''
+2024-03-23 12:34:35,668 INFO o.s.b.StartupInfoLogger [main] Started QmsApplication in 16.377 seconds (JVM running for 17.224)
+2024-03-23 12:34:39,145 INFO o.a.j.l.DirectJDKLog [http-nio-8449-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-23 12:34:39,146 INFO o.s.w.s.FrameworkServlet [http-nio-8449-exec-2] Initializing Servlet 'dispatcherServlet'
+2024-03-23 12:34:39,149 INFO o.s.w.s.FrameworkServlet [http-nio-8449-exec-2] Completed initialization in 3 ms
+2024-03-23 12:34:39,351 INFO c.f.q.u.AppLog [http-nio-8449-exec-2] /dashboard/home
+2024-03-23 12:34:39,391 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select a.quantity,a.err_name,b.checking_quantity from `iqc_elect_comp_err` as a inner join qms.iqc_electronic_component as b on a.elect_comp_id = b.id
+2024-03-23 12:34:39,419 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] SELECT  origin,po_quantity,status,checking_quantity FROM `iqc_electronic_component` 
+2024-03-23 12:34:39,429 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select a.id,a.work_order_id,b.quatity_store,b.conclude from `pqc_store_check` as b inner join pqc_work_order as a on b.work_order_id = a.id
+2024-03-23 12:34:39,799 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select count(status) from `pqc_work_order` where status ='WAIT'
+2024-03-23 12:34:39,815 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select count(status) from `iqc_electronic_component` where status ='WAIT_APPROVE'
+2024-03-23 12:34:39,819 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select c.conclude from `pqc_quality` as c inner join pqc_work_order as b on c.work_order_id = b.id
+2024-03-23 12:34:39,886 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select a.quantity, a.conclude from `pqc_photoelectric` a inner join pqc_work_order as b on a.work_order_id = b.id
+2024-03-23 12:34:39,905 DEBUG o.h.e.j.s.SqlStatementLogger [http-nio-8449-exec-2] select a.quatity, a.conclude from `pqc_photoelectric_product` a inner join pqc_work_order as b on a.work_order_id = b.id
+2024-03-23 12:34:40,018 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9092 (id: -1 rack: null) disconnected
+2024-03-23 12:34:49,921 WARN o.a.k.c.NetworkClient$DefaultMetadataUpdater [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker 222.252.25.37:9093 (id: -2 rack: null) disconnected
