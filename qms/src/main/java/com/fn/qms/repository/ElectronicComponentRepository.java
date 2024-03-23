@@ -11,8 +11,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.fn.qms.models.IqcElectronicComponent;
-import com.fn.qms.models.IqcExaminationType;
-import com.fn.rd.models.Employee;
 
 @Repository
 public interface ElectronicComponentRepository extends JpaRepository<IqcElectronicComponent, Long> {
@@ -89,8 +87,6 @@ public interface ElectronicComponentRepository extends JpaRepository<IqcElectron
             + " AND (:endDate is NULL OR iqc_electronic_component.created_at <= :endDate) "
             + "  GROUP  BY iqc_electronic_component.`status`", nativeQuery = true)
     List<Object[]> reportCountStatus(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
-    @Query(value = "SELECT iqc_electronic_component.status," +
-            "iqc_electronic_component.po_quantity," +
-            "iqc_electronic_component.origin FROM `iqc_electronic_component`",nativeQuery = true)
-    public List<IqcElectronicComponent> getListIqcElectronicComponentByConditions();
+    @Query(value = "SELECT  origin,po_quantity,status,checking_quantity FROM `iqc_electronic_component` ",nativeQuery = true)
+    public List<Object[]> getListIqcElectronicComponentByConditions();
 }

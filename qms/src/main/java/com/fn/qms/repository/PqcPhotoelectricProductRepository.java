@@ -30,4 +30,7 @@ public interface PqcPhotoelectricProductRepository extends JpaRepository<PqcPhot
 
     @Query("FROM PqcPhotoelectricProduct b WHERE UPPER(b.conclude) IN :conclude AND b.workOrderId =:woId AND UPPER(b.checkPerson) =UPPER(:checkPerson)  ")
     List<PqcPhotoelectricProduct> getLstCheckNoti(@Param("conclude") List<String> conclude, @Param("woId") Long woId, @Param("checkPerson") String checkPerson);
+    @Query(value="select a.quatity, a.conclude from `pqc_photoelectric_product` a inner join " +
+            "pqc_work_order as b on a.work_order_id = b.id",nativeQuery = true)
+    public List<Object[]> getPqcPhotoElectList();
 }

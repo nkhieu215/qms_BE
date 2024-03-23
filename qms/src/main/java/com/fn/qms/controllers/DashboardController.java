@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @Validated
@@ -39,12 +40,17 @@ public class DashboardController extends BaseController {
 
 		DashboardResponse response = dashboardService.getChart(param);
 		return  response;
-
 	}
 	@GetMapping("/get-setting-process") // * Lấy danh sách dashBoard
-	public DashboardResponse1 getSumOfErrors(Authentication authen,HttpServletRequest requestClient){
+	public DashboardResponse getSumOfErrors(HttpServletRequest requestClient){
 		AppLog.info(requestClient.getRequestURI());
-		DashboardResponse1 response = dashboardService.getSumOfErrors();
+		DashboardResponse response = dashboardService.getSumOfErrors();
 		return response;
+	}
+	@GetMapping("/pqc-store-check")// * Get pqc-store-check-list
+	public List<Object> PqcStoreCheckDashboardResults(HttpServletRequest requestClient){
+		AppLog.info(requestClient.getRequestURI());
+		List<Object>objects = dashboardService.PqcStoreCheckDashboardResults();
+		return objects;
 	}
 }

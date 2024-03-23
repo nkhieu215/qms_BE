@@ -19,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -41,6 +42,12 @@ public class DashboardService {
     ElectronicComponentRepository electronicComponentRepository;
     @Autowired
     IqcElectCompErrRepository iqcElectCompErrRepository;
+    @Autowired
+    PqcQualityRepository pqcQualityRepository;
+    @Autowired
+    PqcPhotoelectricRepository pqcPhotoelectricRepository;
+    @Autowired
+    PqcPhotoelectricProductRepository pqcPhotoelectricProductRepository;
 
     public DashboardResponse getDashboardPqcIqc(ProductionStepRequest param) {
         String groupName = Utils.isNull(param.getGroupName()) ? null : param.getGroupName().trim().toUpperCase();
@@ -206,14 +213,70 @@ public class DashboardService {
     }
     //? new api for dashboard
     //? Lấy danh sách tổng lỗi
-    public DashboardResponse1 getSumOfErrors(){
-        DashboardResponse1 dashboardResponse = new DashboardResponse1();
-        //☺ Lấy danh sách lỗi
-        List<IqcElectCompErr> errList = this.iqcElectCompErrRepository.findAll();
-        dashboardResponse.setLstIqcElectCompErr(errList);
+    public DashboardResponse getSumOfErrors(){
+        DashboardResponse dashboardResponse = new DashboardResponse();
+//        //☺ Lấy danh sách lỗi
+//        List<IqcElectCompErr> errList = this.iqcElectCompErrRepository.findAll();
+//        dashboardResponse.setIqcElectCompErrsList(errList);
         //?Lấy danh sách Iqc theo điều kiện tìm kiếm
-//        List<IqcElectronicComponent> iqcElectronicComponents = this.electronicComponentRepository.getListIqcElectronicComponentByConditions();
-//        dashboardResponse.setLstIqcElectronicComponents(iqcElectronicComponents);
+        List<IqcElectCompDashResponse> iqcElectCompDashResponseList = new ArrayList<>();
+        List<Object[]> iqcElectronicComponents = this.electronicComponentRepository.getListIqcElectronicComponentByConditions();
+        for (Object[] item : iqcElectronicComponents){
+            IqcElectCompDashResponse data = new IqcElectCompDashResponse();
+            data.setOrigin((String) item[0]);
+            data.setPoQuantity((String) item[1]);
+            data.setStatus((String)item[2]);
+            data.setCheckingQuantity((Integer) item[3]);
+            iqcElectCompDashResponseList.add(data);
+        }
+        dashboardResponse.setIqcElectCompDashList(iqcElectCompDashResponseList);
+        //? pqc_store_check
+        List<Object[]> objects = this.pqcStoreCheckRepository.getListPqcStoreCheck();
+        List<PqcStoreCheckResponse> pqcStoreCheckResponseList = new ArrayList<>();
+        for(Object[] item : objects){
+            PqcStoreCheckResponse response = new PqcStoreCheckResponse();
+            response.setId((Integer) item[0]);
+            response.setWorkOrderId((String) item[1]);
+            response.setQuantityStore((String) item[2]);
+            response.setConclude((String) item[3]);
+            pqcStoreCheckResponseList.add(response);
+        }
+        dashboardResponse.setPqcStoreCheckList(pqcStoreCheckResponseList);
+        dashboardResponse.setCountWorkOrderWaitStatus(this.pqcWorkOrderRepository.countWorkOrderWaitStatus());
+        //? pqc quality- Đánh giá chất lượng
+        List<Object> pqcQualities = this.pqcQualityRepository.getPqcQualityConclude();
+        List<PqcQuantityDashResponse> pqcQuantityDashResponseList = new ArrayList<>();
+        for (Object item :pqcQualities){
+            PqcQuantityDashResponse response = new PqcQuantityDashResponse();
+            response.setConclude((String) item);
+            pqcQuantityDashResponseList.add(response);
+        }
+        dashboardResponse.setPqcQuantityDashResponseList(pqcQuantityDashResponseList);
+        //? pqc photoelectric
+        List<Object[]> pqcPhotoElectList = this.pqcPhotoelectricRepository.getPqcPhotoElectList();
+        List<PqcPhotoElectDashResponse> pqcPhotoElectDashResponses = new ArrayList<>();
+        for(Object[] item: pqcPhotoElectList){
+            PqcPhotoElectDashResponse response = new PqcPhotoElectDashResponse();
+            response.setQuantity((String) item[0]);
+            response.setConclude((String) item[1]);
+            pqcPhotoElectDashResponses.add(response);
+        }
+        dashboardResponse.setPqcPhotoElectDashResponseList(pqcPhotoElectDashResponses);
+        //? pqc photoelectric product
+        List<Object[]> pqcPhotoElecProductList = this.pqcPhotoelectricProductRepository.getPqcPhotoElectList();
+        List<PqcPhotoElectProductDashResponse> pqcPhotoElectDashProductResponses = new ArrayList<>();
+        for(Object[] item: pqcPhotoElecProductList){
+            PqcPhotoElectProductDashResponse response = new PqcPhotoElectProductDashResponse();
+            response.setQuantity((String) item[0]);
+            response.setConclude((String) item[1]);
+            pqcPhotoElectDashProductResponses.add(response);
+        }
+        dashboardResponse.setPqcPhotoElectProductDashResponseList(pqcPhotoElectDashProductResponses);
         return dashboardResponse;
+    }
+    //☺ test api
+    public List<Object> PqcStoreCheckDashboardResults(){
+        List<Object> objects = this.pqcQualityRepository.getPqcQualityConclude();
+        return objects;
     }
 }
