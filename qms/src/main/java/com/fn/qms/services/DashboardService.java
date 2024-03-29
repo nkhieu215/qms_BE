@@ -248,6 +248,7 @@ public class DashboardService {
             response.setWorkOrderId((String) item[1]);
             response.setQuantityStore((String) item[2]);
             response.setConclude((String) item[3]);
+            response.setProductType((Integer) item[4]);
             pqcStoreCheckResponseList.add(response);
         }
         dashboardResponse.setPqcStoreCheckList(pqcStoreCheckResponseList);

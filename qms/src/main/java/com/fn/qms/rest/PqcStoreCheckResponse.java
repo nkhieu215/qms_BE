@@ -14,4 +14,5 @@ public class PqcStoreCheckResponse {
     private String workOrderId;
     private String quantityStore;
     private String conclude;
+    private Integer productType;
 }

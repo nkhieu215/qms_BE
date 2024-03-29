@@ -23,6 +23,7 @@ public class WorkOder {
 	private String productCode;
 	private String productName;
 	private String productOrder;
+	private Long productType;
 	private String quantityPlan;
 	private Date startTime;
 	private String woId;

@@ -72,6 +72,7 @@ public class WoService {
         wo.setQuantityPlan(data.getQuantityPlan());
         wo.setProfileCode(data.getProfileCode());
         wo.setProfileName(data.getProfileName());
+        wo.setProductType(data.getProductType());
         wo.setProfileId(data.getProfileId());
         wo.setSapWo(data.getSapWo());
         wo.setUDocURL(data.getUdocURL());

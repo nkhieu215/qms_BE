@@ -125,6 +125,8 @@ public class PqcWorkOrder implements Serializable {
 	@Column(name = "profile_code")
 	private String profileCode;
 	
+ 	@Column(name="product_type")
+	private Long productType;
 
 	@Column(name = "sap_wo")
 	private String sapWo;
