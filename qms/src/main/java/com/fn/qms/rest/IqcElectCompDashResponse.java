@@ -14,4 +14,5 @@ public class IqcElectCompDashResponse {
     private String poQuantity;
     private String status;
     private Integer checkingQuantity;
+    private String conclusion;
 }

@@ -236,6 +236,7 @@ public class DashboardService {
             data.setPoQuantity((String) item[1]);
             data.setStatus((String)item[2]);
             data.setCheckingQuantity((Integer) item[3]);
+            data.setConclusion((String) item[4]);
             iqcElectCompDashResponseList.add(data);
         }
         dashboardResponse.setIqcElectCompDashList(iqcElectCompDashResponseList);
