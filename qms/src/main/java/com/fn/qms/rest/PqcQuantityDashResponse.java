@@ -11,4 +11,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PqcQuantityDashResponse {
     private String conclude;
+    private String productionCode;
+    private String productionName;
+    private String branchName;
+    private String groupName;
 }

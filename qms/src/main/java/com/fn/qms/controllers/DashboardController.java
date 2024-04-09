@@ -41,16 +41,17 @@ public class DashboardController extends BaseController {
 		DashboardResponse response = dashboardService.getChart(param);
 		return  response;
 	}
-	@GetMapping("/home") // * Lấy danh sách dashBoard
-	public DashboardResponse getSumOfErrors(HttpServletRequest requestClient){
+	@PostMapping("/home-default") // * Lấy danh sách dashBoard
+	public DashboardResponse getSumOfErrors(@RequestBody DashboardRequest dashboardRequest, HttpServletRequest requestClient){
 		AppLog.info(requestClient.getRequestURI());
-		DashboardResponse response = dashboardService.getSumOfErrors();
+		DashboardResponse response;
+		response = dashboardService.getSumOfErrors(dashboardRequest);
 		return response;
 	}
-	@GetMapping("/pqc-store-check")// * Get pqc-store-check-list
-	public List<Object> PqcStoreCheckDashboardResults(HttpServletRequest requestClient){
-		AppLog.info(requestClient.getRequestURI());
-		List<Object>objects = dashboardService.PqcStoreCheckDashboardResults();
-		return objects;
-	}
+//	@GetMapping("/pqc-store-check")// * Get pqc-store-check-list
+//	public List<Object> PqcStoreCheckDashboardResults(HttpServletRequest requestClient){
+//		AppLog.info(requestClient.getRequestURI());
+//		List<Object>objects = dashboardService.PqcStoreCheckDashboardResults();
+//		return objects;
+//	}
 }

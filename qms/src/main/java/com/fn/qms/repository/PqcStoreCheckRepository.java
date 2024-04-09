@@ -27,7 +27,23 @@ public interface PqcStoreCheckRepository extends JpaRepository<PqcStoreCheck, Lo
 
 	@Query(value = "SELECT SUM(pqc_store_check.`quatity_store`) AS total ,  SUM(pqc_store_check.`quantity_store_sap`) AS total_sap FROM `pqc_store_check` WHERE pqc_store_check.`work_order_id` in :workOrderId", nativeQuery = true)
 	List<Object[]> getTotalStoreByWoId(@Param("workOrderId")List<Long> workOrderId);
-	@Query(value = "select a.id,a.work_order_id,b.quatity_store,b.conclude,a.product_type from `pqc_store_check` as b " +
-			"inner join pqc_work_order as a on b.work_order_id = a.id",nativeQuery = true)
-	public List<Object[]> getListPqcStoreCheck();
+	@Query(value = "select " +
+			"a.id," +
+			"a.work_order_id," +
+			"b.quatity_store," +
+			"b.conclude, " +
+			"a.product_type, " +
+			"a.production_code, " +
+			"a.production_name, " +
+			"a.branch_name, " +
+			"a.group_name " +
+			"from `pqc_store_check` as b " +
+			"inner join pqc_work_order as a on b.work_order_id = a.id " +
+			"where a.created_at >=?1 " +
+			"and a.created_at <=?2 " +
+			"and a.production_code like %?3% " +
+			"and a.production_name like %?4% " +
+			"and a.branch_name like %?5% " +
+			"and a.group_name like %?6% ;",nativeQuery = true)
+	public List<Object[]> getListPqcStoreCheck(String startDate, String endDate,String productCode,String productName,String branchName,String groupName);
 }

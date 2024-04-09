@@ -87,8 +87,22 @@ public interface ElectronicComponentRepository extends JpaRepository<IqcElectron
             + " AND (:endDate is NULL OR iqc_electronic_component.created_at <= :endDate) "
             + "  GROUP  BY iqc_electronic_component.`status`", nativeQuery = true)
     List<Object[]> reportCountStatus(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
-    @Query(value = "SELECT  origin,po_quantity,status,checking_quantity,conclusion FROM `iqc_electronic_component` ",nativeQuery = true)
-    public List<Object[]> getListIqcElectronicComponentByConditions();
-    @Query(value="select count(status) from `iqc_electronic_component` where status ='WAIT_APPROVE'",nativeQuery = true)
-    public Integer countIqcWaitApproveStatus();
+    @Query(value = "SELECT  " +
+            "origin, " +
+            "po_quantity, " +
+            "status, " +
+            "checking_quantity, " +
+            "conclusion, " +
+            "elec_comp_code, " +
+            "elect_comp_name " +
+            "FROM `iqc_electronic_component` " +
+            "where created_at >=?1 " +
+            "and created_at <=?2 " +
+            "and elec_comp_code like %?3% " +
+            "and elect_comp_name like %?4% ;",nativeQuery = true)
+    public List<Object[]> getListIqcElectronicComponentByConditions(String startDate, String endDate,String productCode,String productName);
+    @Query(value="select count(status) from `iqc_electronic_component` where status ='WAIT_APPROVE' " +
+            "and created_at >=?1 and created_at <=?2  and elec_comp_code like %?3% " +
+            "and elect_comp_name like %?4% ;",nativeQuery = true)
+    public Integer countIqcWaitApproveStatus(String startDate,String endDate,String productCode,String productName);
 }

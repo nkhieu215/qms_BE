@@ -20,7 +20,17 @@ public interface IqcElectCompErrRepository extends JpaRepository<IqcElectCompErr
     @Modifying
     @Query("DELETE from IqcElectCompErr t where t.id=?1")
     void deleteById(Long id);
-    @Query(value="select a.quantity,a.err_name,b.checking_quantity from `iqc_elect_comp_err` as a inner join " +
-            "qms.iqc_electronic_component as b on a.elect_comp_id = b.id",nativeQuery = true)
-    public List<Object[]> getIqcElectCompErrList();
+    @Query(value="select " +
+            "a.quantity," +
+            "a.err_name," +
+            "b.checking_quantity," +
+            "b.elec_comp_code," +
+            "b.elect_comp_name " +
+            "from `iqc_elect_comp_err` as a " +
+            "inner join iqc_electronic_component as b on a.elect_comp_id = b.id " +
+            "where b.created_at >=?1 " +
+            "and b.created_at <=?2 " +
+            "and b.elec_comp_code like %?3% " +
+            "and b.elect_comp_name like %?4% ;",nativeQuery = true)
+    public List<Object[]> getIqcElectCompErrList(String startDate,String endDate,String productCode,String productName);
 }

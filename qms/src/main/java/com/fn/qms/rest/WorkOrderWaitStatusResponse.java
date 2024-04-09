@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-@Setter
+
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DashboardRequest {
-    private String startDate;
-    private String endDate;
-    private String productCode;
-    private String productName;
+public class WorkOrderWaitStatusResponse {
+    private String status;
+    private String productionCode;
+    private String productionName;
     private String branchName;
     private String groupName;
 }

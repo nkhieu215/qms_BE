@@ -70,6 +70,18 @@ public interface PqcWorkOrderRepository extends JpaRepository<PqcWorkOrder, Long
             + " AND (:groupName is NULL OR UPPER(report_error_all.group_name) like %:groupName%) "
             + " GROUP BY report_error_all.`err_group`", nativeQuery = true)
     List<Object[]> getTotakErrorGroup(@Param("startDate") Date startDate, @Param("endDate") Date endDate, @Param("branchName") String branchName, @Param("groupName") String groupName);
-    @Query(value="select count(status) from `pqc_work_order` where status ='WAIT'",nativeQuery = true)
-    public Integer countWorkOrderWaitStatus();
+    @Query(value="select count(status) from `pqc_work_order` where status ='WAIT' " +
+            "and created_at >=?1 and created_at <=?2 " +
+            "and production_code like %?3% and production_name like %?4% " +
+            "and branch_name like %?5% and group_name like %?6% ;",nativeQuery = true)
+    public Integer countWorkOrderWaitStatus(String startDate, String endDate ,String productCode,String productName,String branchName,String groupName);
+    @Query(value="select " +
+            "status, " +
+            "production_code, " +
+            "production_name, " +
+            "branch_name, " +
+            "group_name " +
+            " from `pqc_work_order` where " +
+            " created_at >=?1 and created_at <=?2 ",nativeQuery = true)
+    public List<Object[]>workOrderWaitStatus(String startDate, String endDate);
 }

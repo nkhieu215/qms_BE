@@ -15,4 +15,8 @@ public class PqcStoreCheckResponse {
     private String quantityStore;
     private String conclude;
     private Integer productType;
+    private String productionCode;
+    private String productionName;
+    private String branchName;
+    private String groupName;
 }

@@ -213,23 +213,33 @@ public class DashboardService {
         return  response;
     }
     //? new api for dashboard
-    //? Lấy danh sách tổng lỗi
-    public DashboardResponse getSumOfErrors(){
+    //☺ Lấy danh sách tổng lỗi
+    public DashboardResponse getSumOfErrors(DashboardRequest dashboardRequest){
         DashboardResponse dashboardResponse = new DashboardResponse();
         //? Lấy danh sách lỗi
-        List<Object[]> errList = this.iqcElectCompErrRepository.getIqcElectCompErrList();
+        List<Object[]> errList = this.iqcElectCompErrRepository.getIqcElectCompErrList(
+                dashboardRequest.getStartDate() + " 00:00:00",
+                dashboardRequest.getEndDate() + " 23:59:59",
+                dashboardRequest.getProductCode(),
+                dashboardRequest.getProductName());
         List<IqcElectCompErrResponse> errResponseList = new ArrayList<>();
         for (Object[] item : errList){
             IqcElectCompErrResponse response = new IqcElectCompErrResponse();
             response.setErrName((String) item[1]);
             response.setQuantity((Integer) item[0]);
             response.setCheckingQuantity((Integer) item[2]);
+            response.setElectCompCode((String) item[3]);
+            response.setElectCompName((String) item[4]);
             errResponseList.add(response);
         }
         dashboardResponse.setIqcElectCompErrsList(errResponseList);
         //?Lấy danh sách Iqc theo điều kiện tìm kiếm
         List<IqcElectCompDashResponse> iqcElectCompDashResponseList = new ArrayList<>();
-        List<Object[]> iqcElectronicComponents = this.electronicComponentRepository.getListIqcElectronicComponentByConditions();
+        List<Object[]> iqcElectronicComponents = this.electronicComponentRepository.getListIqcElectronicComponentByConditions(
+                dashboardRequest.getStartDate() + " 00:00:00",
+                dashboardRequest.getEndDate() + " 23:59:59",
+                dashboardRequest.getProductCode(),
+                dashboardRequest.getProductName());
         for (Object[] item : iqcElectronicComponents){
             IqcElectCompDashResponse data = new IqcElectCompDashResponse();
             data.setOrigin((String) item[0]);
@@ -237,11 +247,19 @@ public class DashboardService {
             data.setStatus((String)item[2]);
             data.setCheckingQuantity((Integer) item[3]);
             data.setConclusion((String) item[4]);
+            data.setElectCompCode((String) item[5]);
+            data.setElectCompName((String) item[6]);
             iqcElectCompDashResponseList.add(data);
         }
         dashboardResponse.setIqcElectCompDashList(iqcElectCompDashResponseList);
         //? pqc_store_check
-        List<Object[]> objects = this.pqcStoreCheckRepository.getListPqcStoreCheck();
+        List<Object[]> objects = this.pqcStoreCheckRepository.getListPqcStoreCheck(
+                dashboardRequest.getStartDate() + " 00:00:00",
+                dashboardRequest.getEndDate() + " 23:59:59",
+                dashboardRequest.getProductCode(),
+                dashboardRequest.getProductName(),
+                dashboardRequest.getBranchName(),
+                dashboardRequest.getGroupName());
         List<PqcStoreCheckResponse> pqcStoreCheckResponseList = new ArrayList<>();
         for(Object[] item : objects){
             PqcStoreCheckResponse response = new PqcStoreCheckResponse();
@@ -250,47 +268,107 @@ public class DashboardService {
             response.setQuantityStore((String) item[2]);
             response.setConclude((String) item[3]);
             response.setProductType((Integer) item[4]);
+            response.setProductionCode((String) item[5]);
+            response.setProductionName((String) item[6]);
+            response.setBranchName((String) item[7]);
+            response.setGroupName((String) item[8]);
             pqcStoreCheckResponseList.add(response);
         }
         dashboardResponse.setPqcStoreCheckList(pqcStoreCheckResponseList);
         //? đếm số lượng lệnh sản xuất  trạng thái Wait
-        dashboardResponse.setCountWorkOrderWaitStatus(this.pqcWorkOrderRepository.countWorkOrderWaitStatus());
+        dashboardResponse.setCountWorkOrderWaitStatus(this.pqcWorkOrderRepository.countWorkOrderWaitStatus(
+                dashboardRequest.getStartDate() + " 00:00:00",
+                dashboardRequest.getEndDate() + " 23:59:59",
+                dashboardRequest.getProductCode(),
+                dashboardRequest.getProductName(),
+                dashboardRequest.getBranchName(),
+                dashboardRequest.getGroupName()));
         //? đếm số lượng biên bản kiểm tra ở trạng thái Wait_approve
-        dashboardResponse.setCountIqcWaitApproveStatus(this.electronicComponentRepository.countIqcWaitApproveStatus());
+        dashboardResponse.setCountIqcWaitApproveStatus(this.electronicComponentRepository.countIqcWaitApproveStatus(
+                dashboardRequest.getStartDate() + " 00:00:00",
+                dashboardRequest.getEndDate() + " 23:59:59",
+                dashboardRequest.getProductCode(),
+                dashboardRequest.getProductName()));
         //? pqc quality- Đánh giá chất lượng
-        List<Object> pqcQualities = this.pqcQualityRepository.getPqcQualityConclude();
+        List<Object[]> pqcQualities = this.pqcQualityRepository.getPqcQualityConclude(
+                dashboardRequest.getStartDate() + " 00:00:00",
+                dashboardRequest.getEndDate() + " 23:59:59",
+                dashboardRequest.getProductCode(),
+                dashboardRequest.getProductName(),
+                dashboardRequest.getBranchName(),
+                dashboardRequest.getGroupName());
         List<PqcQuantityDashResponse> pqcQuantityDashResponseList = new ArrayList<>();
-        for (Object item :pqcQualities){
+        for (Object[] item :pqcQualities){
             PqcQuantityDashResponse response = new PqcQuantityDashResponse();
-            response.setConclude((String) item);
+            response.setConclude((String) item[0]);
+            response.setProductionCode((String) item[1]);
+            response.setProductionName((String) item[2]);
+            response.setBranchName((String) item[3]);
+            response.setGroupName((String) item[4]);
             pqcQuantityDashResponseList.add(response);
         }
         dashboardResponse.setPqcQuantityDashResponseList(pqcQuantityDashResponseList);
         //? pqc photoelectric
-        List<Object[]> pqcPhotoElectList = this.pqcPhotoelectricRepository.getPqcPhotoElectList();
+        List<Object[]> pqcPhotoElectList = this.pqcPhotoelectricRepository.getPqcPhotoElectList(
+                dashboardRequest.getStartDate() + " 00:00:00",
+                dashboardRequest.getEndDate() + " 23:59:59",
+                dashboardRequest.getProductCode(),
+                dashboardRequest.getProductName(),
+                dashboardRequest.getBranchName(),
+                dashboardRequest.getGroupName());
         List<PqcPhotoElectDashResponse> pqcPhotoElectDashResponses = new ArrayList<>();
         for(Object[] item: pqcPhotoElectList){
             PqcPhotoElectDashResponse response = new PqcPhotoElectDashResponse();
             response.setQuantity((String) item[0]);
             response.setConclude((String) item[1]);
+            response.setProductionCode((String) item[2]);
+            response.setProductionName((String) item[3]);
+            response.setBranchName((String) item[4]);
+            response.setGroupName((String) item[5]);
             pqcPhotoElectDashResponses.add(response);
         }
         dashboardResponse.setPqcPhotoElectDashResponseList(pqcPhotoElectDashResponses);
         //? pqc photoelectric product
-        List<Object[]> pqcPhotoElecProductList = this.pqcPhotoelectricProductRepository.getPqcPhotoElectList();
+        List<Object[]> pqcPhotoElecProductList = this.pqcPhotoelectricProductRepository.getPqcPhotoElectList(
+                dashboardRequest.getStartDate() + " 00:00:00",
+                dashboardRequest.getEndDate() + " 23:59:59",
+                dashboardRequest.getProductCode(),
+                dashboardRequest.getProductName(),
+                dashboardRequest.getBranchName(),
+                dashboardRequest.getGroupName());
         List<PqcPhotoElectProductDashResponse> pqcPhotoElectDashProductResponses = new ArrayList<>();
         for(Object[] item: pqcPhotoElecProductList){
             PqcPhotoElectProductDashResponse response = new PqcPhotoElectProductDashResponse();
             response.setQuantity((String) item[0]);
             response.setConclude((String) item[1]);
+            response.setProductionCode((String) item[2]);
+            response.setProductionName((String) item[3]);
+            response.setBranchName((String) item[4]);
+            response.setGroupName((String) item[5]);
             pqcPhotoElectDashProductResponses.add(response);
         }
         dashboardResponse.setPqcPhotoElectProductDashResponseList(pqcPhotoElectDashProductResponses);
+        //? Lấy danh sách gợi ý và count pqc work order status wait
+        List<Object[]> workOrderWaitStatusList = this.pqcWorkOrderRepository.workOrderWaitStatus(
+                dashboardRequest.getStartDate() + " 00:00:00",
+                dashboardRequest.getEndDate() + " 23:59:59"
+        );
+        List<WorkOrderWaitStatusResponse> workOrderWaitStatusResponses = new ArrayList<>();
+        for (Object[] item: workOrderWaitStatusList){
+            WorkOrderWaitStatusResponse response = new WorkOrderWaitStatusResponse();
+            response.setStatus((String) item[0]);
+            response.setProductionCode((String) item[1]);
+            response.setProductionName((String) item[2]);
+            response.setBranchName((String) item[3]);
+            response.setGroupName((String) item[4]);
+            workOrderWaitStatusResponses.add(response);
+        }
+        dashboardResponse.setWorkOrderWaitStatusResponseList(workOrderWaitStatusResponses);
         return dashboardResponse;
     }
     //☺ test api
-    public List<Object> PqcStoreCheckDashboardResults(){
-        List<Object> objects = this.pqcQualityRepository.getPqcQualityConclude();
-        return objects;
-    }
+//    public List<Object> PqcStoreCheckDashboardResults(){
+//        List<Object> objects = this.pqcQualityRepository.getPqcQualityConclude();
+//        return objects;
+//    }
 }

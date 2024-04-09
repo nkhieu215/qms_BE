@@ -52,5 +52,6 @@ public class DashboardResponse extends BaseResponse{
 	List<PqcQuantityDashResponse> pqcQuantityDashResponseList;//Đánh giá chất lượng
 	List<PqcPhotoElectDashResponse> pqcPhotoElectDashResponseList;// Đánh giá thông số bán thành phẩm, driver
 	List<PqcPhotoElectProductDashResponse>pqcPhotoElectProductDashResponseList;//Đánh giá thông số thành phẩm
+	List<WorkOrderWaitStatusResponse> workOrderWaitStatusResponseList;
 
 }
