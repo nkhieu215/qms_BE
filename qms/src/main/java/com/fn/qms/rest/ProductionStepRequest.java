@@ -49,7 +49,7 @@ public class ProductionStepRequest extends BaseRequest {
 
 	private String groupName;
 	private String branchName;
-	
+	private String workOrderCode;
 
 	Long workOrderId;
 	List<PqcDrawNvl> lstNvl;

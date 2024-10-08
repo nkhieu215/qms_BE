@@ -44,6 +44,8 @@ public class PqcQuality implements Serializable {
 	
 	@Column(name="quantity")
 	private String quantity;
+	@Column(name = "checked")
+	private String checked;
 //
 //	@JsonIgnoreProperties({"resultlkdt","hibernateLazyInitializer", "handler"})
 //	@OneToMany(mappedBy="pqcQuality")

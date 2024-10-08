@@ -11,6 +11,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.fn.qms.models.IqcElectronicComponent;
+import com.fn.qms.models.IqcExaminationType;
+import com.fn.rd.models.Employee;
 
 @Repository
 public interface ElectronicComponentRepository extends JpaRepository<IqcElectronicComponent, Long> {

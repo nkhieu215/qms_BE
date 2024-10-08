@@ -1,5 +1,6 @@
 package com.fn.qms.config;
 
+import com.fn.qms.process.Scan100Process;
 import com.fn.qms.process.WarningProcess;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,9 @@ public class StartProcess {
 	public void startProcess() {
 		for (int i = 0; i < threadRunConfig.warning; i++) {
 			WarningProcess sync = new WarningProcess(applicationContext);
+			Scan100Process process = new Scan100Process(applicationContext);
 			sync.start();
+			process.start();
 		}
 	}
 

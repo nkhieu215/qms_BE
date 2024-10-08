@@ -1,5 +1,8 @@
 package com.fn.qms.controllers;
 
+import com.fn.qms.dto.Scan100DTO;
+import com.fn.qms.dto.warning.Scan100Warning;
+import com.fn.qms.models.PqcScan100;
 import com.fn.qms.rest.*;
 import com.fn.qms.services.AssemblesCheckService;
 import com.fn.qms.services.Scan100Service;
@@ -25,5 +28,13 @@ public class PqcScan100Controller extends BaseController {
 		AppLog.info(requestClient.getRequestURI() + "-" + param.toString());
 		Scan100Response response  =  scan100Service.createUpdate(param);
 		return response;
+	}
+	@PostMapping("/update")
+	public void update(@RequestBody Scan100Request request){
+		this.scan100Service.update(request);
+	}
+	@PostMapping("/send-message")
+	public void scanMessage(@RequestBody Scan100Warning request){
+		this.scan100Service.sendMessage(request);
 	}
 }

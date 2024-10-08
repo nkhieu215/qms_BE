@@ -60,6 +60,10 @@ public class StoreController extends BaseController {
 
         return response;
     }
+    @PostMapping("/update")
+    public void updateStoreCheck(@RequestBody PqcStoreCheck param) {
+        storeCheck.pqcUpdateStoreCheck(param);
+    }
 
     @GetMapping("/get-check-store-by-wo/{id}")
     public StoreCheckResponse getCheckStoreByWo(Authentication authen, HttpServletRequest requestClient,

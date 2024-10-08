@@ -47,8 +47,9 @@ public class Constant {
 	public static final String REJECT = "REJECT";
 	public static final String CANCEL = "CANCEL";
 	public static final String FINISH = "FINISH";
-	public static final String PLANNING = "PLANNING";	
-	
+	public static final String PLANNING = "PLANNING";
+	public static final String PQC_NOT_APPROVE = "NOT_APPROVE";//Trạng thái mới
+
 	//planning method
 	public static final String ACTION_SHOW_STEP = "SHOW_STEP";
 	public static final String ACTION_STEP = "ACTION_STEP";

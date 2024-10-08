@@ -112,6 +112,10 @@ public class IqcElectronicComponent implements Serializable {
 
 	@Column(name = "approve_note")
 	private String approveNote;
+	@Column(name = "suggestion")
+	private String suggestion;
+	@Column(name = "iqc_elect_type")
+	private String iqcElectType;
 
 	@JsonIgnoreProperties(value = { "electronicComponent" }, allowSetters = true)
 	@OneToMany(mappedBy = "electronicComponent", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

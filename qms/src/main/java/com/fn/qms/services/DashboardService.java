@@ -5,10 +5,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fn.qms.base.validator.Validator;
 import com.fn.qms.constant.Constant;
 import com.fn.qms.dto.*;
-import com.fn.qms.models.*;
+import com.fn.qms.models.ApproveStoreSap;
+import com.fn.qms.models.IqcElectronicComponent;
+import com.fn.qms.models.PqcStoreCheck;
+import com.fn.qms.models.PqcWorkOrder;
 import com.fn.qms.repository.*;
 import com.fn.qms.rest.*;
-import com.fn.qms.rest.service.IqcElectCompErrResponse;
 import com.fn.qms.utils.AppLog;
 import com.fn.qms.utils.DateUtils;
 import com.fn.qms.utils.Utils;
@@ -20,7 +22,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -366,9 +367,4 @@ public class DashboardService {
         dashboardResponse.setWorkOrderWaitStatusResponseList(workOrderWaitStatusResponses);
         return dashboardResponse;
     }
-    //☺ test api
-//    public List<Object> PqcStoreCheckDashboardResults(){
-//        List<Object> objects = this.pqcQualityRepository.getPqcQualityConclude();
-//        return objects;
-//    }
 }

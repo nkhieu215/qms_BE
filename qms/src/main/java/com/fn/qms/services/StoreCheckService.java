@@ -9,8 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fn.qms.base.validator.SimpleResult;
 import com.fn.qms.bean.ResponseCode;
 import com.fn.qms.constant.Constant;
-import com.fn.qms.dto.KeyValueDTO;
-import com.fn.qms.dto.ReportStoreViewDTO;
+import com.fn.qms.dto.*;
 import com.fn.qms.models.*;
 import com.fn.qms.repository.*;
 import com.fn.qms.rest.*;
@@ -32,8 +31,6 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fn.qms.base.validator.Validator;
-import com.fn.qms.dto.PackingDTO;
-import com.fn.qms.dto.StoreCreateDTO;
 import com.fn.qms.planning.rest.PlanningUpdateStoreInput;
 import com.fn.qms.planning.service.PlanningService;
 import com.fn.qms.rest.bean.StoreCheck;
@@ -87,7 +84,11 @@ public class StoreCheckService {
 
     @Autowired
     PqcWorkOrderRepository pqcWorkOrderRepository;
-
+    public void pqcUpdateStoreCheck(PqcStoreCheck dto){
+        PqcStoreCheck pqcStoreCheck = pqcStoreCheckRepository.findById(dto.getId()).orElse(null);
+        pqcStoreCheck.setQuatity(dto.getQuatity());
+        pqcStoreCheckRepository.save(pqcStoreCheck);
+    }
     public StoreCheckResponse pqcCreateStoreCheck(StoreCreateDTO dto) {
         Validator.Result result = Validator.Result.OK;
         StoreCheckResponse response = new StoreCheckResponse();
@@ -115,10 +116,10 @@ public class StoreCheckService {
             storeCheck.setIdApprovePlaning(storeId);
         }
 
-        if(storeCheck.getId() == null){
-            PqcWorkOrder pqcWorkOrder =pqcWorkOrderRepository.findById(storeCheck.getWorkOrderId()).get();
-            Utils.buildPqcWarning(Constant.APPROVE_STORE,"",pqcWorkOrder, storeCheck.getConclude(), storeCheck.getNote());
-        }
+
+        PqcWorkOrder pqcWorkOrder =pqcWorkOrderRepository.findById(storeCheck.getWorkOrderId()).get();
+        Utils.buildPqcWarning(Constant.STORE_CHECK,"",pqcWorkOrder, storeCheck.getConclude(), storeCheck.getNote());
+
 
         pqcStoreCheckRepository.save(storeCheck);
         response.setId(storeCheck.getId());

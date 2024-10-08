@@ -18,3 +18,4 @@ public class IqcElectCompDashResponse {
     private String electCompCode;
     private String electCompName;
 }
+

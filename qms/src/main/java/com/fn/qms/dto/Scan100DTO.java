@@ -23,4 +23,9 @@ public class Scan100DTO {
     private Boolean status;
     private String user_check;
     private Long workOrderId;
+    private String timeConfirmed;
+    private String reason;
+    private String confirm;
+    private Date createdAt;
+    private Date updatedAt;
 }

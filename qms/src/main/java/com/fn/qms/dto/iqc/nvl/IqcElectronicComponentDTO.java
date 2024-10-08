@@ -33,6 +33,8 @@ public class IqcElectronicComponentDTO {
     public String spkphNumber;
     public String approveNote;
     public String note;
+    public String suggestion;
+    public String iqcElectType;
 
 
     private List<IqcAuditResultNvlDTO> resultNvls;

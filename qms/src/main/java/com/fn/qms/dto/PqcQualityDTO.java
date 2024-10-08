@@ -16,5 +16,6 @@ public class PqcQualityDTO {
     private String conclude;
     private String quantity;
     private String createdAt;
+    private String checked;
     private List<PqcQualityCheckDTO> lstCheck;
 }

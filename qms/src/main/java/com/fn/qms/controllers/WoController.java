@@ -35,7 +35,7 @@ public class WoController extends BaseController{
 	@Autowired
 	WoService woService;
 	
-	@PostMapping("/pqc-create")
+	@PostMapping("/pqc-create")// thêm mới thông tin lệnh sản xuất đang chờ
 	public PqcWorkOrderResponse tinCheckSerial(Authentication authen, HttpServletRequest requestClient,
 			@Valid @RequestBody WoCreateDTO param) {
 		

@@ -5,14 +5,12 @@ import com.fn.qms.constant.Constant;
 import com.fn.qms.dto.PqcQualityCheckDTO;
 import com.fn.qms.dto.PqcQualityDTO;
 import com.fn.qms.dto.StepStatusDTO;
-import com.fn.qms.models.PqcQuality;
-import com.fn.qms.models.PqcQualityCheck;
-import com.fn.qms.models.PqcWorkOrder;
-import com.fn.qms.models.PqcWorkOrderApproveHist;
+import com.fn.qms.models.*;
 import com.fn.qms.repository.*;
 import com.fn.qms.rest.BaseResponse;
 import com.fn.qms.rest.PqcApproveRequest;
 import com.fn.qms.rest.QcCheckRequest;
+import com.fn.qms.utils.Utils;
 import com.google.common.collect.ImmutableList;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,20 +58,40 @@ public class PqcService {
                     pqcWorkOrderStepStatusRepository.updateStep(dto.getPqcWorkOrder(), Constant.SUCCESS, step);
                 }
             }
-        } else {
-            pqcWorkOrder.setStatus(Constant.REJECT);
+        } else if (Constant.REJECT.equalsIgnoreCase(param.getData().getType()) || Constant.PQC_NOT_APPROVE.equalsIgnoreCase(param.getData().getType())) {
+//            pqcWorkOrder.setStatus(Constant.REJECT);
+            // code thêm trạng thái mới
             List<StepStatusDTO> lstStep = param.getData().getLstStep();
-            for (StepStatusDTO dto : lstStep) {
-                List<String> step = ImmutableList.of(dto.getStep());
-                String status = dto.isChecked() ? Constant.SUCCESS : Constant.REJECT;
-                pqcWorkOrderStepStatusRepository.updateStep(dto.getPqcWorkOrder(), status, step);
+            if (Constant.REJECT.equalsIgnoreCase(param.getData().getType())) {
+                pqcWorkOrder.setStatus(Constant.REJECT);
+                for (StepStatusDTO dto : lstStep) {
+                    List<String> step = ImmutableList.of(dto.getStep());
+                    String status = dto.isChecked() ? Constant.SUCCESS : Constant.REJECT;
+                    pqcWorkOrderStepStatusRepository.updateStep(dto.getPqcWorkOrder(), status, step);
+                }
+            } else {
+                pqcWorkOrder.setStatus(Constant.PQC_NOT_APPROVE);
             }
         }
         pqcWorkOrderRepository.save(pqcWorkOrder);
+
+
+        if(Constant.IQC_STATUS_CONCESSIONS.equalsIgnoreCase(pqcWorkOrder.getStatus()) || Constant.REJECT.equalsIgnoreCase(pqcWorkOrder.getStatus())){
+            Utils.buildPqcWarning(Constant.APPROVE_STORE,"",pqcWorkOrder, pqcWorkOrder.getStatus(),param.getData().getNote());
+        }
+
+
+
 
         response.setId(check.getId());
         return response;
     }
 
-
+    public void updateStatus (List<PqcWorkOrderStepStatus> requests ){
+        for (PqcWorkOrderStepStatus request :requests){
+            PqcWorkOrderStepStatus response = this.pqcWorkOrderStepStatusRepository.findById(request.getId()).orElse(null);
+            response.setStatus("SUCCESS");
+            this.pqcWorkOrderStepStatusRepository.save(response);
+        }
+    }
 }

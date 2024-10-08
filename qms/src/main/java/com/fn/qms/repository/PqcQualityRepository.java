@@ -30,5 +30,5 @@ public interface PqcQualityRepository extends JpaRepository<PqcQuality, Long> {
             "and b.production_name like %?4% " +
             "and b.branch_name like %?5% " +
             "and b.group_name like %?6% ;",nativeQuery = true)
-    public List<Object[]> getPqcQualityConclude(String startDate, String endDate,String productCode,String productName,String branchName,String groupName);
+    public List<Object[]> getPqcQualityConclude(String startDate, String endDate, String productCode, String productName, String branchName, String groupName);
 }

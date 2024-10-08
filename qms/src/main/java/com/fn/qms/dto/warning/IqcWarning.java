@@ -17,4 +17,5 @@ public class IqcWarning {
     String note;
     String grpo;
     String type;
+    String origin;
 }

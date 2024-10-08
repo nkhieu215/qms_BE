@@ -29,5 +29,6 @@ public interface ExaminationRepository extends JpaRepository<IqcExaminationType,
 	@Transactional
 	@Query("DELETE FROM IqcExaminationType t where t.id=?1")
 	void deleteExById(Long id);
-
+	public List<IqcExaminationType> findAllByCodeAndType(String code,Integer type);
+	public List<IqcExaminationType> findAllByNameAndType(String name,Integer type);
 }

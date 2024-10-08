@@ -129,14 +129,16 @@ public class ReportController extends BaseController {
 
     @Autowired
     PqcPhotoelectricRepository pqcPhotoelectricRepository;
-
+    @Autowired
+    IqcElectCompErrRepository iqcElectCompErrRepository;
+    @Autowired
+    IqcAuditResultItemRepository iqcAuditResultItemRepository;
 
     ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     @PostMapping("/iqc-report/{id}")
     public void reportCheckParameter(Authentication authen, HttpServletRequest requestClient, HttpServletResponse response, @PathVariable(required = false, name = "id") Long id) {
         IqcElectronicComponent iqcElectronicComponent = repository.getById(id);
-
         try {
             File file = ResourceUtils.getFile("classpath:report/template/iqc_electronic_report.xlsx");
             response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
@@ -164,16 +166,19 @@ public class ReportController extends BaseController {
     }
 
     @PostMapping("/iqc-report-nvl/{id}")
-    public void reportCheckNvl(Authentication authen, HttpServletRequest requestClient, HttpServletResponse response, @PathVariable(required = false, name = "id") Long id) {
+    public void reportCheckNvl(Authentication authen, HttpServletRequest requestClient, HttpServletResponse response, @PathVariable(required = false, name = "id") Long id,@RequestBody List<ErrorListDTO>request) {
         IqcElectronicComponent iqcElectronicComponent = repository.getById(id);
-
+        List<IqcAuditResultItem> list = this.iqcAuditResultItemRepository.findAllByIqcElecCompId((int) (long)  id);
+        System.out.println("check id : "+ id);
         try {
-            File file = ResourceUtils.getFile("classpath:report/template/iqc_electronic_report_nvl.xlsx");
+            File file = ResourceUtils.getFile("classpath:report/template/iqc_electronic_report_nvl_new.xlsx");
             response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
             response.setHeader("Content-Disposition", "attachment; filename=\"iqc_electronic_report.xlsx\"");
             InputStream is = new FileInputStream(file);
             Context context = new Context();
-            context.putVar("lstErr", iqcElectronicComponent.getResultError());
+            //context.putVar("lstErr", iqcElectronicComponent.getResultError());
+            context.putVar("lstErr", request);
+            context.putVar("data3", list);
             context.putVar("data", iqcElectronicComponent);
 
             AppLog.info(mapper.writeValueAsString(iqcElectronicComponent.getResultNvls()));
@@ -189,18 +194,19 @@ public class ReportController extends BaseController {
     }
 
     @PostMapping("/iqc-report-btp/{id}")
-    public void reportCheckBtp(Authentication authen, HttpServletRequest requestClient, HttpServletResponse response, @PathVariable(required = false, name = "id") Long id) {
+    public void reportCheckBtp(Authentication authen, HttpServletRequest requestClient, HttpServletResponse response, @PathVariable(required = false, name = "id") Long id,@RequestBody List<ErrorListDTO>request) {
         IqcElectronicComponent iqcElectronicComponent = repository.getById(id);
-
+        List<IqcAuditResultItem> list = this.iqcAuditResultItemRepository.findAllByIqcElecCompId((int) (long)  id);
         try {
-            File file = ResourceUtils.getFile("classpath:report/template/iqc_electronic_report_btp.xlsx");
+            File file = ResourceUtils.getFile("classpath:report/template/iqc_electronic_report_btp_new.xlsx");
             response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
             response.setHeader("Content-Disposition", "attachment; filename=\"iqc_electronic_report.xlsx\"");
             InputStream is = new FileInputStream(file);
             Context context = new Context();
-            context.putVar("lstErr", iqcElectronicComponent.getResultError());
+//            context.putVar("lstErr", iqcElectronicComponent.getResultError());
+            context.putVar("lstErr", request);
             context.putVar("data", iqcElectronicComponent);
-
+            context.putVar("data4", list);
             AppLog.info(mapper.writeValueAsString(iqcElectronicComponent.getResultNvls()));
             context.putVar("data2", iqcElectronicComponent.getResultLkdt());
             context.putVar("data3", iqcElectronicComponent.getResultParam());

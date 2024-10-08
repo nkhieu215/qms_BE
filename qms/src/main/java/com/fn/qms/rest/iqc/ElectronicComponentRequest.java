@@ -32,5 +32,5 @@ public class ElectronicComponentRequest extends BaseRequest {
 	private List<IqcAuditResultParameterDTO> lstIqcParam;
 	private List<IqcAuditResultLkdtDTO> lstIqcLkdt;
 	private List<IqcAuditResultNvlDTO> lstIqcNvl;
-	private List<IqcElectCompErrDTO> lstError;
+	//private List<IqcElectCompErrDTO> lstError;
 }

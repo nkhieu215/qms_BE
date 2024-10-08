@@ -54,19 +54,19 @@ public class ExaminationService {
         List<IqcExaminationDTO> lstDto = modelMapper.map(lst, listType);
 
 
-        // remove id
-        ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        ;
-        try {
-            String json = mapper.writeValueAsString(lstDto);
-
-            String data = json.replace("id", "idTemplate");
-            List<IqcExaminationDTO> lstRemove = Arrays.asList(mapper.readValue(data, IqcExaminationDTO[].class));
-            response.setLstExamination(lstRemove);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        // remove id (tắt ko dùng)
+//        ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+//        ;
+//        try {
+//            String json = mapper.writeValueAsString(lstDto);
+//
+//            String data = json.replace("id", "idTemplate");
+//            List<IqcExaminationDTO> lstRemove = Arrays.asList(mapper.readValue(data, IqcExaminationDTO[].class));
+//            response.setLstExamination(lstRemove);
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
             response.setLstExamination(lstDto);
-        }
+//        }
         return response;
     }
 

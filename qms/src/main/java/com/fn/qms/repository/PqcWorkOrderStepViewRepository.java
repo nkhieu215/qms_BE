@@ -23,12 +23,18 @@ public interface PqcWorkOrderStepViewRepository extends JpaRepository<PqcWorkOrd
             + " AND (:userId is NULL OR UPPER(t.userId) =UPPER(:userId)) "
             + " AND (:startDate is NULL OR t.createdAt >= :startDate )"
             + " AND (:endDate is NULL OR t.createdAt <= :endDate) "
+            + " AND (:branchName is NULL OR UPPER(t.branchName) like %:branchName%) "
+            + " AND (:groupName is NULL OR UPPER(t.groupName) like %:groupName%) "
             + " AND (:step is NULL OR UPPER(t.step) =:step) "
             + " AND (:woCode is NULL OR UPPER(t.planingWorkOrderCode) like %:woCode%) "
+            + " AND (:workOrderId is NULL OR UPPER(t.workOrderId) like %:workOrderId%) "
             + " order by t.createdAt desc")
     Page<PqcWorkOrderViewStep> findListByStep(@Param("productionName") String productionName, @Param("productionCode") String productionCode,
                                               @Param("lotNumber") String lot, @Param("step") String step, @Param("userId") String userId,
-                                              @Param("startDate") Date startDate, @Param("endDate") Date endDate, @Param("sap") String sap, @Param("woCode") String woCode, @Param("status") String status, Pageable pageable);
+                                              @Param("startDate") Date startDate, @Param("endDate") Date endDate, @Param("sap") String sap,
+                                              @Param("woCode") String woCode, @Param("status") String status,
+                                              @Param("groupName") String groupName, @Param("branchName") String branchName, @Param("workOrderId") String workOrderId,
+                                              Pageable pageable);
     @Query("SELECT t FROM PqcWorkOrderViewStep t where 1=1 "
             + " AND t.id =:woId "
             + " AND  UPPER(t.userId) =UPPER(:userId) "

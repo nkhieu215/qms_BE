@@ -17,3 +17,4 @@ public class PqcPhotoElectDashResponse {
     private String branchName;
     private String groupName;
 }
+

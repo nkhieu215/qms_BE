@@ -96,18 +96,20 @@ public class ElectronicComponentService {
             }
         }
 
-
-        if(param.getLstError() != null){
-            for (IqcElectCompErrDTO dto: param.getLstError() ) {
-                IqcElectCompErr errror = modelMapper.map(dto, IqcElectCompErr.class);
-                errror.setElectCompId(iqcElectronicComponent.getId());
-                iqcElectCompErrRepository.save(errror);
-            }
-        }
+        // *cập nhật lỗi(tắt)
+//        if(param.getLstError() != null){
+//            for (IqcElectCompErrDTO dto: param.getLstError() ) {
+//                IqcElectCompErr errror = modelMapper.map(dto, IqcElectCompErr.class);
+//                errror.setElectCompId(iqcElectronicComponent.getId());
+//                iqcElectCompErrRepository.save(errror);
+//            }
+//        }
 
         if(Constant.IQC_UNSATISFACTORY.equalsIgnoreCase(iqcElectronicComponent.getConclusion()) || Constant.IQC_CONCESSIONS.equalsIgnoreCase(iqcElectronicComponent.getConclusion())){
+            AppLog.info("Send noti");
             NotiConfig notiConfig = DataCache.getNoticonfig(iqcElectronicComponent.getConclusion().equalsIgnoreCase(Constant.IQC_UNSATISFACTORY) ? "IQC_UNSATISFACTORY" : "IQC_CONCESSIONS");
             if (notiConfig != null) {
+                AppLog.info("Send noti true");
                 ObjectMapper objectMapper = new ObjectMapper();
 
                 // get step by user
@@ -124,6 +126,8 @@ public class ElectronicComponentService {
                 iqcWarning.setDate(DateUtils.convertToDateString(iqcElectronicComponent.getCheckDate(), DateUtils.DATE_WITH_DASH2));
                 iqcWarning.setConclude(iqcElectronicComponent.getConclusion());
                 iqcWarning.setName(iqcElectronicComponent.getElectCompName());
+                iqcWarning.setQuantity(iqcElectronicComponent.getCheckingQuantity()+"");
+                iqcWarning.setOrigin(iqcElectronicComponent.getOrigin());
                 iqcWarning.setType("1".equalsIgnoreCase(iqcElectronicComponent.getType())?"Biên bản kiểm tra NVL":"Biên bản kiểm tra BTP");
                 try {
                     notiDto.setContent(objectMapper.writeValueAsString(iqcWarning));

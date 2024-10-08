@@ -31,11 +31,18 @@ public class IqcElectCompErr implements Serializable {
 
 	@Column(name="err_name")
 	private String errName;
-
+	@Column(name="err_code")
+	private String errCode;
+	@Column(name="created_at")
+	private String createdAt;
+	@Column(name="note")
+	private String note;
 	private int quantity;
 
 	@Column(name="elect_comp_id")
 	private Long electCompId;
+	@Column(name="audit_result_item_id")
+	private Integer auditResultItemId;
 
 	private String ratio;
 

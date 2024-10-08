@@ -72,13 +72,13 @@ public class WoService {
         wo.setQuantityPlan(data.getQuantityPlan());
         wo.setProfileCode(data.getProfileCode());
         wo.setProfileName(data.getProfileName());
-        wo.setProductType(data.getProductType());
         wo.setProfileId(data.getProfileId());
         wo.setSapWo(data.getSapWo());
         wo.setUDocURL(data.getUdocURL());
         wo.setUDocURL2(data.getUdocURL2());
         wo.setStartTime(data.getStartDate());
         wo.setEndTime(data.getEndDate());
+        wo.setProductType(data.getProductType());
         pqcWorkOrderRepository.save(wo);
 
         if (dto.getBomversion() != null && !dto.getBomversion().isEmpty()) {
@@ -158,18 +158,20 @@ public class WoService {
         String status =Utils.isNull(param.getStatus()) ? null : param.getStatus().trim();
         String groupName =Utils.isNull(param.getGroupName()) ? null : param.getGroupName().trim();
         String branchName =Utils.isNull(param.getBranchName()) ? null : param.getBranchName().trim();
-
+        String workOrderId = Utils.isNull(param.getWorkOrderCode()) ? null : param.getWorkOrderCode().trim();
         Date start = Utils.isNull(param.getStartDate()) ? null : DateUtils.convertStringToDate(param.getStartDate() + " 00:00:00", DateUtils.CURRENT_TIME);
         Date end = Utils.isNull(param.getEndDate()) ? null : DateUtils.convertStringToDate(param.getEndDate() + " 23:59:59", DateUtils.CURRENT_TIME);
         AppLog.info("page: " + page + " | size :" + param.getSize());
         Page<PqcWorkOrderViewStep> lstView;
         List<WoDTO> lstStep;
         if(Utils.isNull(param.getStep())){
-            Page<PqcWorkOrderView> views =  pqcWorkOrderViewRepository.findListByName(name, code, lot, start, end, sap, woCode,status, groupName, branchName, PageRequest.of(page, param.getSize()));
+            System.out.println("Loại 1");
+            Page<PqcWorkOrderView> views =  pqcWorkOrderViewRepository.findListByName(name, code, lot, start, end, sap, woCode,status, groupName, branchName,workOrderId ,PageRequest.of(page, param.getSize()));
             lstStep = Arrays.asList(mapper.convertValue(views.getContent(), WoDTO[].class));
             response.setTotal(views.getTotalPages());
         }else{
-            lstView = repository.findListByStep(name, code, lot, param.getStep(), userId, start, end, sap, woCode,status, PageRequest.of(page, param.getSize()));
+            System.out.println("Loại 2");
+            lstView = repository.findListByStep(name, code, lot, param.getStep(), userId, start, end, sap, woCode,status,groupName, branchName, workOrderId,PageRequest.of(page, param.getSize()));
             lstStep = Arrays.asList(mapper.convertValue(lstView.getContent(), WoDTO[].class));
             response.setTotal(lstView.getTotalPages());
         }

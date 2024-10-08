@@ -60,6 +60,12 @@ public class PqcScan100 implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at")
 	private Date updatedAt;
+	@Column(name = "time_confirmed")
+	private String timeConfirmed;
+	@Column(name = "reason")
+	private String reason;
+	@Column(name = "confirm")
+	private String confirm;
 
 	@PrePersist
 	public void create() {
@@ -70,4 +76,26 @@ public class PqcScan100 implements Serializable {
 	@JoinColumn(name = "work_order_id", insertable = false, updatable = false)
 	@JsonIgnore
 	private PqcWorkOrder pqcWorkOrder;
+
+	@Override
+	public String toString() {
+		return "PqcScan100{" +
+				"id=" + id +
+				", machine='" + machine + '\'' +
+				", side='" + side + '\'' +
+				", feeder='" + feeder + '\'' +
+				", material='" + material + '\'' +
+				", qr='" + qr + '\'' +
+				", date='" + date + '\'' +
+				", status=" + status +
+				", user_check='" + user_check + '\'' +
+				", workOrderId=" + workOrderId +
+				", createdAt=" + createdAt +
+				", updatedAt=" + updatedAt +
+				", timeConfirmed=" + timeConfirmed +
+				", reason='" + reason + '\'' +
+				", confirm='" + confirm + '\'' +
+				", pqcWorkOrder=" + pqcWorkOrder +
+				'}';
+	}
 }

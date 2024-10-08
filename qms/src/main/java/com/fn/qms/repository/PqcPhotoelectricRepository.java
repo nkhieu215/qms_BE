@@ -37,5 +37,4 @@ public interface PqcPhotoelectricRepository extends JpaRepository<PqcPhotoelectr
             "and b.branch_name like %?5% " +
             "and b.group_name like %?6% ;",nativeQuery = true)
     public List<Object[]> getPqcPhotoElectList(String startDate, String endDate,String productCode, String productName,String branchName,String groupName);
-
 }

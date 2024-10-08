@@ -30,4 +30,5 @@ public class ProductPlanning {
     public String profile;
     public String sapWo;
     public String lineName;
+    public Integer productType;
 }

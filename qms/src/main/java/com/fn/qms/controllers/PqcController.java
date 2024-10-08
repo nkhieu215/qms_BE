@@ -1,6 +1,7 @@
 package com.fn.qms.controllers;
 
 import com.fn.qms.dto.PqcQualityDTO;
+import com.fn.qms.models.PqcWorkOrderStepStatus;
 import com.fn.qms.rest.BaseResponse;
 import com.fn.qms.rest.PqcApproveRequest;
 import com.fn.qms.rest.QcCheckRequest;
@@ -14,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @Validated
@@ -30,6 +32,10 @@ public class PqcController extends BaseController {
 		BaseResponse response  =  qcCheckService.approve(param);
 
 		return response;
+	}
+	@PostMapping("/approves")
+	public void updateStatus(@RequestBody List<PqcWorkOrderStepStatus> requests){
+		this.qcCheckService.updateStatus(requests);
 	}
 
 }

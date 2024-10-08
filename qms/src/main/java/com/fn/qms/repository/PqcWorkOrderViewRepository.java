@@ -26,10 +26,11 @@ public interface PqcWorkOrderViewRepository extends JpaRepository<PqcWorkOrderVi
             + " AND (:woCode is NULL OR UPPER(t.planingWorkOrderCode) like %:woCode%) "
             + " AND (:branchName is NULL OR UPPER(t.branchName) like %:branchName%) "
             + " AND (:groupName is NULL OR UPPER(t.groupName) like %:groupName%) "
+            + " AND (:workOrderId is NULL OR UPPER(t.workOrderId) like %:workOrderId%) "
             + " order by t.createdAt desc")
     Page<PqcWorkOrderView> findListByName(@Param("productionName") String productionName, @Param("productionCode") String productionCode,
                                           @Param("lotNumber") String lot, @Param("startDate") Date startDate, @Param("endDate") Date endDate,
-                                          @Param("sap") String sap, @Param("woCode") String woCode, @Param("status") String status, @Param("groupName") String groupName, @Param("branchName") String branchName, Pageable pageable);
+                                          @Param("sap") String sap, @Param("woCode") String woCode, @Param("status") String status, @Param("groupName") String groupName, @Param("branchName") String branchName,@Param("workOrderId") String workOrderId, Pageable pageable);
 
 
 }

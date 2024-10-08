@@ -22,8 +22,8 @@ public class WorkOder {
 	private String planningWorkOrderId;
 	private String productCode;
 	private String productName;
+	private Integer productType;
 	private String productOrder;
-	private Long productType;
 	private String quantityPlan;
 	private Date startTime;
 	private String woId;

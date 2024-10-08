@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fn.qms.config.DataCache;
-import com.fn.qms.constant.Constant;
 import com.fn.qms.dto.warning.NotiDto;
 import com.fn.qms.dto.warning.PqcWarning;
 import com.fn.qms.models.*;
@@ -15,13 +14,10 @@ import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
 import org.keycloak.representations.AccessToken;
 
 import com.fn.qms.security.services.UserDetailsImpl;
-import com.fn.qms.service.base.ExaminationServiceBase;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 public class Utils {
@@ -54,6 +50,8 @@ public class Utils {
             List<String> concludeLst = new ArrayList<>();
             concludeLst.add("NHÂN NHƯỢNG");
             concludeLst.add("KHÔNG ĐẠT");
+            concludeLst.add("REJECT");
+            concludeLst.add("CONCESSIONS");
 
             boolean noti = false;
             String url = "";
@@ -62,7 +60,9 @@ public class Utils {
             }
 
             NotiConfig notiConfig = DataCache.getNoticonfig(step);
+            AppLog.info("Step warning " + step);
             if (notiConfig != null && noti) {
+                AppLog.info( "Warning =true");
                 ObjectMapper objectMapper = new ObjectMapper();
                 String stepName = DataCache.getSettingByCodeName(step).getName();
 
@@ -75,13 +75,13 @@ public class Utils {
                 notiDto.setAppName(notiConfig.getAppName());
 
                 PqcWarning pqcWarning = new PqcWarning();
-                pqcWarning.setWo(pqcWorkOrder.getSapWo());
+                pqcWarning.setWo(pqcWorkOrder.getWorkOrderId());
                 pqcWarning.setNote(note);
                 pqcWarning.setConclude(conclude);
                 pqcWarning.setStep(stepName);
                 pqcWarning.setLotnumber(pqcWorkOrder.getLotNumber());
                 pqcWarning.setUrl(url);
-                pqcWarning.setPoCode(pqcWorkOrder.getSapWo());
+                pqcWarning.setSapCode(pqcWorkOrder.getSapWo());
                 pqcWarning.setDateStart(pqcWorkOrder.getStartTime());
                 pqcWarning.setProductName(pqcWorkOrder.getProductionName());
                 pqcWarning.setProductCode(pqcWorkOrder.getProductionCode());

@@ -7,6 +7,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class StepStatusDTO {
+    private Long id;
     private Long pqcWorkOrder;
     private String userId;
     private String status;

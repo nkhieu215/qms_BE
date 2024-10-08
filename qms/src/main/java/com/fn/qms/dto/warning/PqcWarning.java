@@ -11,7 +11,7 @@ public class PqcWarning {
     String productCode;
     String lotnumber;
     String dateStart;
-    String poCode;
+    String sapCode;
     String step;
     String note;
     String url;

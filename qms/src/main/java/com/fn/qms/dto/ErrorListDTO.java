@@ -17,8 +17,11 @@ public class ErrorListDTO {
     private String errGroup;
 
     private String errName;
+    private String errCode;
+    private String itemCode;
 
     private int quantity;
 
     private String ratio;
+    private Integer electCompId;
 }
