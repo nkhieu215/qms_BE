@@ -21,6 +21,7 @@ public class IqcAuditCriteriaNvlDTO {
     private String note;
 
     private String regulationLevel;
+    private String acceptanceLevel;
 
     private String unit;
 }

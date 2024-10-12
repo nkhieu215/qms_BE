@@ -171,7 +171,7 @@ public class ReportController extends BaseController {
         List<IqcAuditResultItem> list = this.iqcAuditResultItemRepository.findAllByIqcElecCompId((int) (long)  id);
         System.out.println("check id : "+ id);
         try {
-            File file = ResourceUtils.getFile("classpath:report/template/iqc_electronic_report_nvl_new.xlsx");
+            File file = ResourceUtils.getFile("classpath:report/template/iqc_electronic_report_nvl_new_ver2.xlsx");
             response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
             response.setHeader("Content-Disposition", "attachment; filename=\"iqc_electronic_report.xlsx\"");
             InputStream is = new FileInputStream(file);
@@ -198,7 +198,7 @@ public class ReportController extends BaseController {
         IqcElectronicComponent iqcElectronicComponent = repository.getById(id);
         List<IqcAuditResultItem> list = this.iqcAuditResultItemRepository.findAllByIqcElecCompId((int) (long)  id);
         try {
-            File file = ResourceUtils.getFile("classpath:report/template/iqc_electronic_report_btp_new.xlsx");
+            File file = ResourceUtils.getFile("classpath:report/template/iqc_electronic_report_btp_new_ver2.xlsx");
             response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
             response.setHeader("Content-Disposition", "attachment; filename=\"iqc_electronic_report.xlsx\"");
             InputStream is = new FileInputStream(file);

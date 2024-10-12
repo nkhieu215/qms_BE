@@ -37,6 +37,8 @@ public class IqcAuditCriteriaLkdt implements Serializable {
 
 	@Column(name="regulation_level")
 	private String regulationLevel;
+	@Column(name = "acceptance_level")
+	private String acceptanceLevel;
 
 	@Column(name="technical_requirement")
 	private String technicalRequirement;

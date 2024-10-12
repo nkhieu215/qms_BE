@@ -42,6 +42,8 @@ public class IqcAuditCriteriaNvl implements Serializable {
 
 	@Column(name = "regulation_level")
 	private String regulationLevel;
+	@Column(name = "acceptance_level")
+	private String acceptanceLevel;
 
 	private String unit;
 //

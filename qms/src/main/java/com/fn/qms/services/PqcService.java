@@ -89,6 +89,13 @@ public class PqcService {
 
     public void updateStatus (List<PqcWorkOrderStepStatus> requests ){
         for (PqcWorkOrderStepStatus request :requests){
+//            System.out.println("STORE_CHECK_TRUE_1" + request.getStep());
+            if(request.getStep().equals("STORE_CHECK")){
+//                System.out.println("STORE_CHECK_TRUE");
+                PqcWorkOrder pqcWorkOrder = pqcWorkOrderRepository.findById(request.getPqcWorkOrder()).orElse(null);
+                        pqcWorkOrder.setStatus(Constant.IQC_STATUS_WAIT_APPROVE);
+                        pqcWorkOrderRepository.save(pqcWorkOrder);
+            }
             PqcWorkOrderStepStatus response = this.pqcWorkOrderStepStatusRepository.findById(request.getId()).orElse(null);
             response.setStatus("SUCCESS");
             this.pqcWorkOrderStepStatusRepository.save(response);

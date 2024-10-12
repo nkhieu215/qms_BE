@@ -15,5 +15,6 @@ public class IqcAuditCriteriaLkdtDTO {
     private long templateId;
     private String auditContent;
     private String regulationLevel;
+    private String acceptanceLevel;
     private String technicalRequirement;
 }

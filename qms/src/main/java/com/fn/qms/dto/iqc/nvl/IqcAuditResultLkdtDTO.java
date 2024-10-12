@@ -10,6 +10,7 @@ public class IqcAuditResultLkdtDTO {
     public Long templateId;
     public String auditContent;
     public String regulationLevel;
+    public String acceptanceLevel;
     public String technicalRequirement;
     public Long auditCritetiaLkdtId;
     public String ids;

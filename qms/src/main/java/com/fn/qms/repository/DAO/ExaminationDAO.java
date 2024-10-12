@@ -96,6 +96,7 @@ public class ExaminationDAO {
 					nvl.setMin(reNvl.getMin());
 					nvl.setNote(reNvl.getNote());
 					nvl.setRegulationLevel(reNvl.getRegulationLevel());
+					nvl.setAcceptanceLevel(reNvl.getAcceptanceLevel());
 					nvl.setUnit(reNvl.getUnit());
 					auditCritetialNvlRepository.save(nvl);
 				}

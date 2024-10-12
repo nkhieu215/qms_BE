@@ -10,6 +10,7 @@ public class IqcCriteriaNvl {
 	private String criteriaName;
 	private String level;
 	private String regulationLevel;
+	private String acceptanceLevel;
 	private String min;
 	private String max;
 	private String unit;

@@ -31,5 +31,6 @@ public class IqcAuditResultNvlDTO {
     private String noteAudit;
     private String criteriaName;
     private String regulationLevel;
+    private String acceptanceLevel;
 
 }
