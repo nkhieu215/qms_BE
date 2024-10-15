@@ -27,4 +27,6 @@ public interface PqcStoreConfusedRepository extends JpaRepository<PqcStoreConfus
 	@Transactional
 	@Query("DELETE from PqcStoreConfused t where t.storeCheckId =:storeCheckId")
 	void deleteAllByStoreCheckId(@Param("storeCheckId") Long storeCheckId);
+	@Query(value = "select max(quatity) from `pqc_store_confused` where store_check_id = ?1",nativeQuery = true)
+	Integer findMaxByPqcStoreCheck( Long storeCheckId);
 }

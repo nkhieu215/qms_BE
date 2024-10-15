@@ -534,5 +534,15 @@ public class StoreCheckService {
     private void updateCheckTotal(Long storeId){
 
     }
+    public PqcStoreCheckElectronicDTO getMaxQuantity(Long storeCheckId){
+        PqcStoreCheckElectronicDTO data = new PqcStoreCheckElectronicDTO();
+        data.setMaxELECT(this.storeElectricRepo.findMaxByPqcStoreCheck(storeCheckId));
+        data.setMaxCONFUSED(this.confusedRepository.findMaxByPqcStoreCheck(storeCheckId));
+        data.setMaxSIZE(this.storeSizeRepo.findMaxByPqcStoreCheck(storeCheckId));
+        data.setMaxSAFE(this.storeSafeRepo.findMaxByPqcStoreCheck(storeCheckId));
+        data.setMaxSTRUCTURE(pqcStoreStructRepository.findMaxByPqcStoreCheck(storeCheckId));
+        data.setMaxEXTER(storeExternalRepo.findMaxByPqcStoreCheck(storeCheckId));
+        return data;
+    }
 }
 

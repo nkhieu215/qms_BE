@@ -25,4 +25,6 @@ public interface PqcStoreElectricRepository extends JpaRepository<PqcStorePow, L
 	@Transactional
 	@Query("DELETE from PqcStorePow t where t.storeCheckId =:storeCheckId")
 	void deleteAllByStoreCheckId(@Param("storeCheckId") Long storeCheckId);
+	@Query(value = "select max(quantity_check) from `pqc_store_pow` where store_check_id = ?1",nativeQuery = true)
+	Integer findMaxByPqcStoreCheck( Long storeCheckId);
 }

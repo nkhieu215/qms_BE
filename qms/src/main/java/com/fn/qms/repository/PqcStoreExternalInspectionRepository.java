@@ -26,4 +26,6 @@ public interface PqcStoreExternalInspectionRepository extends JpaRepository<PqcS
 	@Transactional
 	@Query("DELETE from PqcStoreExternalInspection t where t.storeCheckId =:storeCheckId")
 	void deleteAllByStoreCheckId(@Param("storeCheckId") Long storeCheckId);
+	@Query(value = "select max(quantity) from `pqc_store_external_inspection` where store_check_id = ?1",nativeQuery = true)
+	Integer findMaxByPqcStoreCheck( Long storeCheckId);
 }

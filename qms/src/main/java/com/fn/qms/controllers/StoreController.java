@@ -48,7 +48,11 @@ public class StoreController extends BaseController {
 
     @Autowired
     StoreCheckService storeCheck;
-
+    @GetMapping("find-max/{id}")
+    public PqcStoreCheckElectronicDTO getMaxQuantity(@PathVariable Long id){
+        PqcStoreCheckElectronicDTO data = this.storeCheck.getMaxQuantity(id);
+        return data;
+    }
     @PostMapping("/create")
     public StoreCheckResponse tinCheckSerial(Authentication authen, HttpServletRequest requestClient,
                                              @Valid @RequestBody StoreCreateDTO param) {
