@@ -1,15 +1,18 @@
 package com.fn.qms.services;
 
 import com.fn.qms.models.PqcBomErrorDetail;
+import com.fn.qms.models.PqcBomErrorDetailResponse;
 import com.fn.qms.models.PqcBomQuantity;
 import com.fn.qms.repository.PqcBomErrorDetailRepository;
 import com.fn.qms.repository.PqcBomQuantityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class CheckNvlService {
     @Autowired
     PqcBomQuantityRepository pqcBomQuantityRepository;
@@ -31,18 +34,18 @@ public class CheckNvlService {
         return id;
     }
     // * Lấy danh sách lỗi theo pqc work-order-id
-    public List<PqcBomErrorDetail> getListErrorByWo(Integer id){
-        List<PqcBomErrorDetail> list = this.pqcBomErrorDetailRepository.findAllByPqcWorkOrderId(id);
+    public List<PqcBomErrorDetailResponse> getListErrorByWo(Integer id){
+        List<PqcBomErrorDetailResponse> list = this.pqcBomErrorDetailRepository.getAllByPqcWorkOrderId(id);
         return list;
     }
     // * Lấy danh sách lỗi theo pqc bom-work-order-id
-    public List<PqcBomErrorDetail> getListErrorByBomWo(Integer id){
-        List<PqcBomErrorDetail> list = this.pqcBomErrorDetailRepository.findAllByPqcBomWorkOrderId(id);
+    public List<PqcBomErrorDetailResponse> getListErrorByBomWo(Integer id){
+        List<PqcBomErrorDetailResponse> list = this.pqcBomErrorDetailRepository.getAllByPqcBomWorkOrderId(id);
         return list;
     }
     // * Lấy danh sách lỗi theo pqc bom-quantity-id
-    public List<PqcBomErrorDetail> getListErrorByBomQuantityWo(Integer id){
-        List<PqcBomErrorDetail> list = this.pqcBomErrorDetailRepository.findAllByPqcBomQuantityId(id);
+    public List<PqcBomErrorDetailResponse> getListErrorByBomQuantityWo(Integer id){
+        List<PqcBomErrorDetailResponse> list = this.pqcBomErrorDetailRepository.getAllByPqcBomQuantityId(id);
         return list;
     }
     // * Lấy danh sách nhập theo pqc-bom-work-order
@@ -68,6 +71,7 @@ public class CheckNvlService {
     }
     // * xóa thông tin nhập
     public void deleteBomQuantity(Integer id){
+        this.pqcBomErrorDetailRepository.deletedByPqcBomQuantityId(id);
         this.pqcBomQuantityRepository.deleteById(id);
     }
     // * xóa thông tin lỗi

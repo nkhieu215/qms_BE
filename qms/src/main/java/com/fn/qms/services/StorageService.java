@@ -13,10 +13,13 @@ import java.util.UUID;
 
 import com.fn.handler.StorageException;
 import com.fn.qms.config.StoreImageConfig;
+import com.fn.qms.models.IqcLkdtRawData;
+import com.fn.qms.repository.IqcLkdtRawDataRepository;
 import com.fn.qms.utils.AppLog;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -26,6 +29,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class StorageService {
+    @Autowired
+    IqcLkdtRawDataRepository iqcLkdtRawDataRepository;
     private final Path rootLocation = Paths.get(StoreImageConfig.PATH);
 
     public List<String> store(MultipartFile[] files, String folder) {
@@ -81,5 +86,8 @@ public class StorageService {
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize storage!");
         }
+    }
+    public void downloadRawData(IqcLkdtRawData request){
+        this.iqcLkdtRawDataRepository.save(request);
     }
 }

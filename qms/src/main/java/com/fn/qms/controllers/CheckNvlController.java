@@ -1,6 +1,7 @@
 package com.fn.qms.controllers;
 
 import com.fn.qms.models.PqcBomErrorDetail;
+import com.fn.qms.models.PqcBomErrorDetailResponse;
 import com.fn.qms.models.PqcBomQuantity;
 import com.fn.qms.services.CheckNvlService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,20 +30,20 @@ public class CheckNvlController {
     }
     // * Lấy danh sách lỗi theo pqc work-order-id
     @GetMapping("get-lst-one/{id}")
-    public List<PqcBomErrorDetail> getListErrorByWo(@PathVariable Integer id){
-        List<PqcBomErrorDetail> list = this.checkNvlService.getListErrorByWo(id);
+    public List<PqcBomErrorDetailResponse> getListErrorByWo(@PathVariable Integer id){
+        List<PqcBomErrorDetailResponse> list = this.checkNvlService.getListErrorByWo(id);
         return list;
     }
     // * Lấy danh sách lỗi theo pqc bom-work-order-id
     @GetMapping("get-lst-two/{id}")
-    public List<PqcBomErrorDetail> getListErrorByBomWo(@PathVariable Integer id){
-        List<PqcBomErrorDetail> list = this.checkNvlService.getListErrorByBomWo(id);
+    public List<PqcBomErrorDetailResponse> getListErrorByBomWo(@PathVariable Integer id){
+        List<PqcBomErrorDetailResponse> list = this.checkNvlService.getListErrorByBomWo(id);
         return list;
     }
     // * Lấy danh sách lỗi theo pqc bom-quantity-id
     @GetMapping("get-lst-three/{id}")
-    public List<PqcBomErrorDetail> getListErrorByBomQuantityWo(@PathVariable Integer id){
-        List<PqcBomErrorDetail> list = this.checkNvlService.getListErrorByBomQuantityWo(id);
+    public List<PqcBomErrorDetailResponse> getListErrorByBomQuantityWo(@PathVariable Integer id){
+        List<PqcBomErrorDetailResponse> list = this.checkNvlService.getListErrorByBomQuantityWo(id);
         return list;
     }
     // * Thêm mới / cập nhật danh sách lỗi

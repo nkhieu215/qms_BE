@@ -2,6 +2,7 @@ package com.fn.qms.controllers;
 
 import com.fn.qms.base.validator.Validator;
 import com.fn.qms.dto.UploadForm;
+import com.fn.qms.models.IqcLkdtRawData;
 import com.fn.qms.rest.UploadFileResponse;
 import com.fn.qms.services.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,9 @@ public class UploadController {
         uploadFileResponse.setResult(result);
 
         return new ResponseEntity(uploadFileResponse, HttpStatus.OK);
+    }
+    @PostMapping("download-raw-data")
+    public void downloadRawData(@RequestBody IqcLkdtRawData request){
+        this.storageService.downloadRawData(request);
     }
 }
