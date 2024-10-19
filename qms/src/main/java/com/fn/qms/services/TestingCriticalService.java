@@ -1,6 +1,7 @@
 package com.fn.qms.services;
 
 import com.fn.qms.dto.ErrorListDTO;
+import com.fn.qms.dto.IqcAuditResultItemDTO;
 import com.fn.qms.dto.TestingCriticalDTO;
 import com.fn.qms.dto.TestingCriticalGroupDTO;
 import com.fn.qms.models.*;
@@ -175,11 +176,34 @@ public class TestingCriticalService {
         return list;
     }
     // ☺ insert/update
-    public List<IqcAuditResultItem> submitIqcResultItem(List<IqcAuditResultItem> request){
+    public List<IqcAuditResultItem> submitIqcResultItem(IqcAuditResultItemDTO request){
         List<IqcAuditResultItem> list = new ArrayList<>();
-        for (IqcAuditResultItem item:request){
-            this.iqcAuditResultItemRepository.save(item);
-            list.add(item);
+        List<IqcAuditResultItem> data = request.getItem();
+
+        if (request.getAuditType().equals("edit")){
+            System.out.println("check updated");
+            for (IqcAuditResultItem item:data){
+                this.iqcAuditResultItemRepository.save(item);
+                list.add(item);
+            }
+        }else {
+            System.out.println("check added");
+            for (IqcAuditResultItem item:data) {
+                IqcAuditResultItem response = new IqcAuditResultItem();
+                response.setBillNumber(item.getBillNumber());
+                response.setNote(item.getNote());
+                response.setItemCode(item.getItemCode());
+                response.setItemName(item.getItemName());
+                response.setLotNumber(item.getLotNumber());
+                response.setPoQuantity(item.getPoQuantity());
+                response.setQuantityCheck(item.getQuantityCheck());
+                response.setCreatedAt(item.getCreatedAt());
+                response.setUpdateAt(item.getUpdateAt());
+                response.setUsername(item.getUsername());
+                response.setIqcElecCompId(item.getIqcElecCompId());
+                this.iqcAuditResultItemRepository.save(response);
+                list.add(response);
+            }
         }
         return list;
     }

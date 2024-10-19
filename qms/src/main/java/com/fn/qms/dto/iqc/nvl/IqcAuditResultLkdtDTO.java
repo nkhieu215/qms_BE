@@ -18,4 +18,9 @@ public class IqcAuditResultLkdtDTO {
     public String inaccuracy;
     public String checkContent;
     public String checkResult;
+    public String min;
+    public String max;
+    public String minAudit;
+    public String maxAudit;
+    public String unit;
 }

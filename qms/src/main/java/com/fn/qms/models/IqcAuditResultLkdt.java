@@ -36,6 +36,16 @@ public class IqcAuditResultLkdt implements Serializable {
 
 	@Column(name="check_result")
 	private String checkResult;
+	@Column(name="min")
+	private String min;
+	@Column(name="max")
+	private String max;
+	@Column(name="min_audit")
+	private String minAudit;
+	@Column(name="max_audit")
+	private String maxAudit;
+	@Column(name="unit")
+	private String unit;
 
 	@Column(name="elect_comp_id")
 	private Long electCompId;

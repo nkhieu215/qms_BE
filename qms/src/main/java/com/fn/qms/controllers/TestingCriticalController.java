@@ -1,6 +1,7 @@
 package com.fn.qms.controllers;
 
 import com.fn.qms.dto.ErrorListDTO;
+import com.fn.qms.dto.IqcAuditResultItemDTO;
 import com.fn.qms.dto.TestingCriticalDTO;
 import com.fn.qms.dto.TestingCriticalGroupDTO;
 import com.fn.qms.models.*;
@@ -143,7 +144,7 @@ public class TestingCriticalController {
     }
     // ☺ insert/update
     @PostMapping("/iqc/submit")
-    public List<IqcAuditResultItem> submitIqcResultItem(@RequestBody List<IqcAuditResultItem> request){
+    public List<IqcAuditResultItem> submitIqcResultItem(@RequestBody IqcAuditResultItemDTO request){
         List<IqcAuditResultItem> list = this.testingCriticalService.submitIqcResultItem(request);
         return list;
     }

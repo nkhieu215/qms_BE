@@ -17,4 +17,7 @@ public class IqcAuditCriteriaLkdtDTO {
     private String regulationLevel;
     private String acceptanceLevel;
     private String technicalRequirement;
+    private String min;
+    private String max;
+    private String unit;
 }
